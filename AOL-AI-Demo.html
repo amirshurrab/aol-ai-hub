@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>عرض قدرات الذكاء الاصطناعي · أكاديمية التعلم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#070f22; --bg2:#0b1530; --panel:#101c3d; --panel2:#16244d; --line:#27376b;
@@ -12,7 +15,7 @@
   --green:#5fbf8a; --red:#e06a6a;
   --radius:18px; --shadow:0 18px 50px rgba(0,0,0,.55);
   --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Tajawal","Cairo",Roboto,Helvetica,Arial,sans-serif;
+  --sans:"Tajawal",-apple-system,BlinkMacSystemFont,"Segoe UI","Cairo",Roboto,Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box}html,body{margin:0}
 body{background:radial-gradient(1200px 700px at 80% -12%,#13265a 0%,var(--bg) 58%);color:var(--ink);font-family:var(--sans);line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased}
@@ -70,7 +73,7 @@ footer.site img{height:28px}.footfall{font-weight:800;color:#fff}.footfall b{col
 [hidden]{display:none!important}
 @media(max-width:520px){.starter{flex-direction:column;align-items:flex-start}}
 /* ===== Arabic readability boost (applies only when lang=ar) ===== */
-html[lang=ar] body{font-family:"SF Arabic","Geeza Pro","Tajawal","Cairo","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif}
+html[lang=ar] body{font-family:"Tajawal","SF Arabic","Geeza Pro","Cairo","Segoe UI",sans-serif}
 html[lang=ar] p,html[lang=ar] li{line-height:1.95}
 html[lang=ar] .sub{font-size:19px;line-height:1.95}
 html[lang=ar] .seclead{font-size:16.5px;line-height:1.9}
@@ -78,17 +81,22 @@ html[lang=ar] .pain,html[lang=ar] .run .out,html[lang=ar] .idea span,html[lang=a
 html[lang=ar] .demo h3{font-size:20px}
 html[lang=ar] .area,html[lang=ar] .tagchip{font-size:13.5px}
 /* Arabic prompt boxes: drop monospace, use a readable Arabic font, larger */
-html[lang=ar] .promptbox,html[lang=ar] .starter code{font-family:"SF Arabic","Geeza Pro","Tajawal","Segoe UI",sans-serif;font-size:15px;line-height:2}
+html[lang=ar] .promptbox,html[lang=ar] .starter code{font-family:"Tajawal","SF Arabic","Geeza Pro","Segoe UI",sans-serif;font-size:15px;line-height:2}
 html[lang=ar] .run .out h4{font-size:16px}
 html[lang=ar] .btn,html[lang=ar] .copybtn{font-size:14.5px}
 html[lang=ar] .disclaimer{font-size:13px;line-height:1.85}
 html[lang=ar] .idea b{font-size:15px}
+/* co-brand lockup (AoL | LGN) */
+.lgdiv{color:var(--muted2);font-size:24px;font-weight:300;opacity:.5;line-height:1}
+.cobrand{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;padding:0 9px;height:40px}
+.cobrand img{height:28px;width:auto;display:block}
+.lgnfb{display:none;color:#0E244C;font-weight:800;font-size:18px;letter-spacing:.5px}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="lockup">
-    <a href="https://aol.edu.sa" target="_blank" rel="noopener"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fallback" style="display:none">AOL<b>·</b></span></a>
+    <a href="https://aol.edu.sa" target="_blank" rel="noopener"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fallback" style="display:none">AOL<b>·</b></span></a><span class="lgdiv">|</span><span class="cobrand"><img src="assets/lgn-logo.png" alt="LGN" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"><span class="lgnfb">LGN</span></span>
     <span class="tagchip" data-ar="عرض القدرات" data-en="Capability Demo">عرض القدرات</span>
   </div>
   <div class="controls">
@@ -193,12 +201,12 @@ html[lang=ar] .idea b{font-size:15px}
   </div>
 
   <section class="guide reveal">
-    <h2 style="margin:0;font-size:22px" data-ar="دليل الميسّر (للجلسة الحيّة)" data-en="Facilitator guide (for the live session)">دليل الميسّر (للجلسة الحيّة)</h2>
+    <h2 style="margin:0;font-size:22px" data-ar="دليل المدرب (للجلسة الحيّة)" data-en="Facilitator guide (for the live session)">دليل المدرب (للجلسة الحيّة)</h2>
     <ol>
       <li data-ar="ابدأ ببطاقة «الإعلان» — الأقرب لاهتمام الحاضرين وتعطي نتيجة فورية مبهرة." data-en="Start with the “post” card — closest to the audience and gives an instant wow.">ابدأ ببطاقة «الإعلان» — تعطي نتيجة فورية مبهرة.</li>
       <li data-ar="اطلب من أحد الحضور تعديل الحقل بين [الأقواس] ليرى أثر التخصيص." data-en="Ask an attendee to edit the [bracketed] field to see the effect of customization.">اطلب تعديل الحقل بين [الأقواس] ليرى أثر التخصيص.</li>
       <li data-ar="أكّد دائمًا: الذكاء الاصطناعي يكتب المسودة، والمختص يراجع ويعتمد." data-en="Always reinforce: AI writes the draft, the expert reviews and approves.">أكّد: الذكاء الاصطناعي يكتب المسودة، والمختص يراجع ويعتمد.</li>
-      <li data-ar="اختم بفتح «الجولة الوكيلة» لإظهار الانتقال من المساعدة إلى التفويض." data-en="Close by opening the “Agentic Tour” to show the shift from assistance to delegation.">اختم بفتح «الجولة الوكيلة».</li>
+      <li data-ar="اختم بفتح «الوكيل التنفيذي» لإظهار الانتقال من المساعدة إلى التفويض." data-en="Close by opening the “Agentic Tour” to show the shift from assistance to delegation.">اختم بفتح «الوكيل التنفيذي».</li>
     </ol>
   </section>
 </main>
@@ -206,7 +214,7 @@ html[lang=ar] .idea b{font-size:15px}
 <footer class="site wrap">
   <div class="row">
     <div class="lockup"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="footfall" style="display:none">AOL<b>·</b></span></div>
-    <div class="partner" data-ar="مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم" data-en="An internal AI-enablement initiative · Academy of Learning">مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم</div>
+    <div class="partner" data-ar="بالشراكة مع LGN · أكاديمية التعلم" data-en="In partnership with LGN · Academy of Learning">بالشراكة مع LGN · أكاديمية التعلم</div>
   </div>
   <p class="disclaimer" data-ar="المخرجات أعلاه توضيحية وغير سرية، وتمثّل مسودة أولى يراجعها مختص قبل الاستخدام. تتطلب الإجراءات غير القابلة للتراجع موافقة بشرية." data-en="The outputs above are illustrative and non-confidential — a first draft a human reviews before use. Irreversible actions require human approval.">المخرجات أعلاه توضيحية وغير سرية…</p>
 </footer>

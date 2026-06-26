@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>مكتبة الأوامر الاحترافية · أكاديمية التعلم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#070f22; --bg2:#0b1530; --panel:#101c3d; --panel2:#16244d; --line:#27376b;
@@ -12,7 +15,7 @@
   --blue:#5b8def; --violet:#a98ce0; --green:#5fbf8a;
   --radius:18px; --shadow:0 18px 50px rgba(0,0,0,.55);
   --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Tajawal","Cairo",Roboto,Helvetica,Arial,sans-serif;
+  --sans:"Tajawal",-apple-system,BlinkMacSystemFont,"Segoe UI","Cairo",Roboto,Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box}html,body{margin:0}
 body{background:radial-gradient(1200px 700px at 80% -12%,#13265a 0%,var(--bg) 58%);color:var(--ink);font-family:var(--sans);line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased}
@@ -50,21 +53,26 @@ footer.site img{height:28px}.footfall{font-weight:800;color:#fff}.footfall b{col
 #toast{position:fixed;inset-inline:0;bottom:26px;margin:auto;width:max-content;max-width:90%;background:var(--accent);color:#10203f;font-weight:700;padding:11px 20px;border-radius:999px;opacity:0;transform:translateY(14px);transition:.3s;pointer-events:none;z-index:99}#toast.show{opacity:1;transform:none}
 .reveal{opacity:0;transform:translateY(16px);transition:.6s}.reveal.in{opacity:1;transform:none}
 /* ===== Arabic readability boost (applies only when lang=ar) ===== */
-html[lang=ar] body{font-family:"SF Arabic","Geeza Pro","Tajawal","Cairo","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif}
+html[lang=ar] body{font-family:"Tajawal","SF Arabic","Geeza Pro","Cairo","Segoe UI",sans-serif}
 html[lang=ar] p,html[lang=ar] li{line-height:1.95}
 html[lang=ar] .sub{font-size:19px;line-height:1.95}
 html[lang=ar] .intro{font-size:15.5px;line-height:1.9}
 html[lang=ar] .pcard h3{font-size:18.5px}
 html[lang=ar] .pcard .for,html[lang=ar] .tagchip{font-size:13.5px}
 /* Arabic prompts: readable Arabic font instead of monospace, larger */
-html[lang=ar] .prompt{font-family:"SF Arabic","Geeza Pro","Tajawal","Segoe UI",sans-serif;font-size:15px;line-height:2}
+html[lang=ar] .prompt{font-family:"Tajawal","SF Arabic","Geeza Pro","Segoe UI",sans-serif;font-size:15px;line-height:2}
 html[lang=ar] .tab,html[lang=ar] .btn,html[lang=ar] .copybtn{font-size:14.5px}
 html[lang=ar] .disclaimer,html[lang=ar] .partner{font-size:13px;line-height:1.85}
+/* co-brand lockup (AoL | LGN) */
+.lgdiv{color:var(--muted2);font-size:24px;font-weight:300;opacity:.5;line-height:1}
+.cobrand{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;padding:0 9px;height:40px}
+.cobrand img{height:28px;width:auto;display:block}
+.lgnfb{display:none;color:#0E244C;font-weight:800;font-size:18px;letter-spacing:.5px}
 </style>
 </head>
 <body>
 <header class="site">
-  <div class="lockup"><a href="https://aol.edu.sa" target="_blank" rel="noopener"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fallback" style="display:none">AOL<b>·</b></span></a><span class="tagchip" data-ar="مكتبة الأوامر" data-en="Prompt Library">مكتبة الأوامر</span></div>
+  <div class="lockup"><a href="https://aol.edu.sa" target="_blank" rel="noopener"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fallback" style="display:none">AOL<b>·</b></span></a><span class="lgdiv">|</span><span class="cobrand"><img src="assets/lgn-logo.png" alt="LGN" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"><span class="lgnfb">LGN</span></span><span class="tagchip" data-ar="مكتبة الأوامر" data-en="Prompt Library">مكتبة الأوامر</span></div>
   <div class="controls"><button class="btn" id="langBtn" onclick="toggleLang()">EN</button><a class="btn" href="AOL-AI-Hub.html" data-ar="↩ المنصة" data-en="↩ Hub">↩ المنصة</a></div>
 </header>
 
@@ -102,7 +110,7 @@ html[lang=ar] .disclaimer,html[lang=ar] .partner{font-size:13px;line-height:1.85
 
 <footer class="site wrap">
   <div class="row"><div class="lockup"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="footfall" style="display:none">AOL<b>·</b></span></div>
-  <div class="partner" data-ar="مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم" data-en="An internal AI-enablement initiative · Academy of Learning">مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم</div></div>
+  <div class="partner" data-ar="بالشراكة مع LGN · أكاديمية التعلم" data-en="In partnership with LGN · Academy of Learning">بالشراكة مع LGN · أكاديمية التعلم</div></div>
   <p class="disclaimer" data-ar="راجع مخرجات أي أمر قبل الاستخدام الرسمي. لا تُدخل بيانات شخصية حسّاسة في أدوات غير معتمدة؛ فضّل الخيار السيادي عند الحاجة." data-en="Review any prompt’s output before official use. Don’t enter sensitive personal data into unapproved tools; prefer the sovereign option when needed.">راجع مخرجات أي أمر قبل الاستخدام الرسمي…</p>
 </footer>
 

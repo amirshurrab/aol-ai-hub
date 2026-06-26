@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>منصة الذكاء الاصطناعي · أكاديمية التعلم — AI Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#070f22; --bg2:#0b1530; --panel:#101c3d; --panel2:#16244d; --line:#27376b;
@@ -14,7 +17,7 @@
   --green:#5fbf8a; --amber:#e0a93f; --blue:#5b8def; --violet:#a98ce0; --red:#e06a6a;
   --radius:18px; --shadow:0 18px 50px rgba(0,0,0,.55);
   --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Tajawal","Cairo",Roboto,Helvetica,Arial,sans-serif;
+  --sans:"Tajawal",-apple-system,BlinkMacSystemFont,"Segoe UI","Cairo",Roboto,Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -91,7 +94,7 @@ footer.site .fallback b{color:var(--accent)}
 @media(max-width:760px){.panel{grid-template-columns:1fr}.qr{border-inline-start:0;border-top:1px solid var(--line);padding-inline-start:0;padding-top:18px}}
 [hidden]{display:none!important}
 /* ===== Arabic readability boost (applies only when lang=ar) ===== */
-html[lang=ar] body{font-family:"SF Arabic","Geeza Pro","Tajawal","Cairo","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif}
+html[lang=ar] body{font-family:"Tajawal","SF Arabic","Geeza Pro","Cairo","Segoe UI",sans-serif}
 html[lang=ar] p,html[lang=ar] li{line-height:1.95}
 html[lang=ar] .sub{font-size:19.5px;line-height:1.95}
 html[lang=ar] .seclead{font-size:16.5px;line-height:1.9}
@@ -101,6 +104,18 @@ html[lang=ar] .chip,html[lang=ar] .who,html[lang=ar] .tagchip,html[lang=ar] .par
 html[lang=ar] .disclaimer{font-size:13px;line-height:1.85}
 html[lang=ar] .btn,html[lang=ar] .open{font-size:15px}
 html[lang=ar] .card h3{font-size:22px}
+/* co-brand lockup (AoL | LGN) */
+.lgdiv{color:var(--muted2);font-size:24px;font-weight:300;opacity:.5;line-height:1}
+.cobrand{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;padding:0 9px;height:40px}
+.cobrand img{height:28px;width:auto;display:block}
+.lgnfb{display:none;color:#0E244C;font-weight:800;font-size:18px;letter-spacing:.5px}
+/* fullscreen QR modal */
+.qrmodal{position:fixed;inset:0;background:rgba(3,8,20,.93);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:none;place-items:center;z-index:200;padding:20px}
+.qrmodal.open{display:grid}
+.qrbox{display:flex;flex-direction:column;align-items:center;gap:16px;animation:qrpop .25s ease}
+@keyframes qrpop{from{transform:scale(.9);opacity:0}to{transform:none;opacity:1}}
+.qrbox img{width:min(82vmin,560px);height:auto;border-radius:22px;background:#fff;padding:12px;box-shadow:var(--shadow)}
+.qrbox .qrurl{color:var(--muted);font-family:var(--mono);font-size:14px}
 </style>
 </head>
 <body>
@@ -110,7 +125,7 @@ html[lang=ar] .card h3{font-size:22px}
       <img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="fallback" style="display:none">AOL<b>·</b></span>
-    </a>
+    </a><span class="lgdiv">|</span><span class="cobrand"><img src="assets/lgn-logo.png" alt="LGN" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"><span class="lgnfb">LGN</span></span>
     <span class="tagchip" data-ar="منصة تمكين الذكاء الاصطناعي" data-en="AI Enablement Hub">منصة تمكين الذكاء الاصطناعي</span>
   </div>
   <div class="controls">
@@ -121,13 +136,13 @@ html[lang=ar] .card h3{font-size:22px}
 <main class="wrap">
   <section class="hero reveal">
     <div class="eyebrow" data-ar="أكاديمية التعلم · رؤية 2030" data-en="Academy of Learning · Vision 2030">أكاديمية التعلم · رؤية 2030</div>
-    <h1 class="title" data-ar="الذكاء الاصطناعي في خدمة موطن الكفاءات" data-en="Artificial Intelligence for the Home of Excellence">الذكاء الاصطناعي في خدمة موطن الكفاءات</h1>
+    <h1 class="title" data-ar="منصة تمكين الذكاء الاصطناعي لأكاديمية التعلم" data-en="The AI Enablement Platform · Academy of Learning">منصة تمكين الذكاء الاصطناعي لأكاديمية التعلم</h1>
     <p class="sub" data-ar="جولة تفاعلية تُظهر كيف يرفع الذكاء الاصطناعي جودة التعليم والتشغيل في أكاديمية التعلم — من تسويق الدبلومات وخدمة المتدربين إلى إعداد التقارير والاعتمادات — مع حوكمة مسؤولة وخيارات سيادية تحفظ البيانات داخل المملكة."
        data-en="An interactive tour of how AI lifts teaching quality and operations across the Academy — from diploma marketing and trainee service to reporting and accreditation — with responsible governance and sovereign options that keep data inside the Kingdom.">جولة تفاعلية تُظهر كيف يرفع الذكاء الاصطناعي جودة التعليم والتشغيل في أكاديمية التعلم — من تسويق الدبلومات وخدمة المتدربين إلى إعداد التقارير والاعتمادات — مع حوكمة مسؤولة وخيارات سيادية تحفظ البيانات داخل المملكة.</p>
     <div class="flow">
       <span data-ar="مسار مقترح:" data-en="Suggested flow:">مسار مقترح:</span>
       <span><b>1</b> <span data-ar="عرض القدرات" data-en="Capability Demo">عرض القدرات</span></span>
-      <span><b>2</b> <span data-ar="الجولة الوكيلة" data-en="Agentic Tour">الجولة الوكيلة</span></span>
+      <span><b>2</b> <span data-ar="الوكيل التنفيذي" data-en="Agentic Tour">الوكيل التنفيذي</span></span>
       <span><b>3</b> <span data-ar="مكتبة الأوامر" data-en="Prompt Library">مكتبة الأوامر</span></span>
       <span><b>4</b> <span data-ar="حقيبة الأدوات" data-en="AI Toolkit">حقيبة الأدوات</span></span>
       <span><b>5</b> <span data-ar="ما القادم" data-en="What's Next">ما القادم</span></span>
@@ -148,7 +163,7 @@ html[lang=ar] .card h3{font-size:22px}
 
     <a class="card reveal" href="AOL-Agentic-Tour.html">
       <div class="num">02</div><div class="ico">🤖</div>
-      <h3 data-ar="الجولة الوكيلة (Agents)" data-en="Agentic Tour">الجولة الوكيلة (Agents)</h3>
+      <h3 data-ar="الوكيل التنفيذي (Agents)" data-en="Agentic Tour">الوكيل التنفيذي (Agents)</h3>
       <div class="who" data-ar="لمن: من جرّب الأوامر" data-en="For: already prompting">لمن: من جرّب الأوامر</div>
       <p data-ar="الفرق بين روبوت المحادثة والوكيل، ومخططات وكلاء تنفّذ مهامًا كاملة مع بوابة موافقة بشرية."
          data-en="Chatbot vs. agent, plus agent blueprints that execute full tasks with a human approval gate.">الفرق بين روبوت المحادثة والوكيل، ومخططات وكلاء تنفّذ مهامًا كاملة مع بوابة موافقة بشرية.</p>
@@ -211,6 +226,7 @@ html[lang=ar] .card h3{font-size:22px}
       <img src="AOL-hub-qr.png" alt="QR" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
       <div class="ph" hidden data-ar="سيظهر رمز الاستجابة السريعة بعد النشر على الإنترنت" data-en="QR appears after the hub is deployed online">سيظهر رمز الاستجابة السريعة بعد النشر على الإنترنت</div>
       <small data-ar="امسح للوصول إلى المنصة" data-en="Scan to open the hub">امسح للوصول إلى المنصة</small>
+      <button class="btn" onclick="openQR()" style="margin-top:8px">⛶ <span data-ar="تكبير الرمز" data-en="Fullscreen">تكبير الرمز</span></button>
     </div>
   </section>
 </main>
@@ -222,12 +238,13 @@ html[lang=ar] .card h3{font-size:22px}
            onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
       <span class="fallback" style="display:none">AOL<b>·</b></span>
     </div>
-    <div class="partner" data-ar="مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم" data-en="An internal AI-enablement initiative · Academy of Learning">مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم</div>
+    <div class="partner" data-ar="بالشراكة مع LGN · أكاديمية التعلم" data-en="In partnership with LGN · Academy of Learning">بالشراكة مع LGN · أكاديمية التعلم</div>
   </div>
   <p class="disclaimer" data-ar="المحتوى والمخرجات المعروضة هنا توضيحية وغير سرية، وتمثّل مسودة أولى يراجعها مختص مؤهل قبل أي استخدام رسمي. تتطلب الإجراءات غير القابلة للتراجع موافقة بشرية. الأدوات والأسعار قابلة للتغيير؛ يُرجى التحقق قبل الاعتماد."
      data-en="All content and outputs shown here are illustrative and non-confidential — a first draft that a qualified human reviews before any official use. Irreversible actions require human approval. Tools and pricing change; verify before relying on them.">المحتوى والمخرجات المعروضة هنا توضيحية وغير سرية، وتمثّل مسودة أولى يراجعها مختص مؤهل قبل أي استخدام رسمي. تتطلب الإجراءات غير القابلة للتراجع موافقة بشرية. الأدوات والأسعار قابلة للتغيير؛ يُرجى التحقق قبل الاعتماد.</p>
 </footer>
 
+<div id="qrModal" class="qrmodal" onclick="closeQR()"><div class="qrbox" onclick="event.stopPropagation()"><img src="AOL-hub-qr.png" alt="QR code"><div class="qrurl">amirshurrab.github.io/aol-ai-hub</div><button class="btn solid" onclick="closeQR()">✕ <span data-ar="إغلاق" data-en="Close">إغلاق</span></button></div></div>
 <div id="toast"></div>
 <script>
 /* ---------- i18n ---------- */
@@ -252,6 +269,9 @@ function copyLink(){copyText(location.href, document.documentElement.lang==='ar'
 /* ---------- reveal on scroll ---------- */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+function openQR(){document.getElementById("qrModal").classList.add("open");}
+function closeQR(){document.getElementById("qrModal").classList.remove("open");}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeQR();});
 </script>
 </body>
 </html>

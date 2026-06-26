@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>الجولة الوكيلة · أكاديمية التعلم</title>
+<title>الوكيل التنفيذي · أكاديمية التعلم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#070f22; --bg2:#0b1530; --panel:#101c3d; --panel2:#16244d; --line:#27376b;
@@ -12,7 +15,7 @@
   --green:#5fbf8a; --amber:#e0a93f; --blue:#5b8def; --violet:#a98ce0; --red:#e06a6a;
   --radius:18px; --shadow:0 18px 50px rgba(0,0,0,.55);
   --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Tajawal","Cairo",Roboto,Helvetica,Arial,sans-serif;
+  --sans:"Tajawal",-apple-system,BlinkMacSystemFont,"Segoe UI","Cairo",Roboto,Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box}html,body{margin:0}
 body{background:radial-gradient(1200px 700px at 80% -12%,#13265a 0%,var(--bg) 58%);color:var(--ink);font-family:var(--sans);line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased}
@@ -80,7 +83,7 @@ footer.site img{height:28px}.footfall{font-weight:800;color:#fff}.footfall b{col
 [hidden]{display:none!important}
 @media(max-width:760px){.vs{grid-template-columns:1fr}.vsmid{padding:6px}}
 /* ===== Arabic readability boost (applies only when lang=ar) ===== */
-html[lang=ar] body{font-family:"SF Arabic","Geeza Pro","Tajawal","Cairo","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif}
+html[lang=ar] body{font-family:"Tajawal","SF Arabic","Geeza Pro","Cairo","Segoe UI",sans-serif}
 html[lang=ar] p,html[lang=ar] li{line-height:1.95}
 html[lang=ar] .sub{font-size:19px;line-height:1.95}
 html[lang=ar] .seclead{font-size:16.5px;line-height:1.9}
@@ -92,11 +95,16 @@ html[lang=ar] .tagchip{font-size:13.5px}
 html[lang=ar] .btn,html[lang=ar] .copybtn{font-size:14.5px}
 html[lang=ar] .partner,html[lang=ar] .disclaimer{font-size:13px;line-height:1.85}
 html[lang=ar] .bp h3{font-size:20px}
+/* co-brand lockup (AoL | LGN) */
+.lgdiv{color:var(--muted2);font-size:24px;font-weight:300;opacity:.5;line-height:1}
+.cobrand{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;padding:0 9px;height:40px}
+.cobrand img{height:28px;width:auto;display:block}
+.lgnfb{display:none;color:#0E244C;font-weight:800;font-size:18px;letter-spacing:.5px}
 </style>
 </head>
 <body>
 <header class="site">
-  <div class="lockup"><a href="https://aol.edu.sa" target="_blank" rel="noopener"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fallback" style="display:none">AOL<b>·</b></span></a><span class="tagchip" data-ar="الجولة الوكيلة" data-en="Agentic Tour">الجولة الوكيلة</span></div>
+  <div class="lockup"><a href="https://aol.edu.sa" target="_blank" rel="noopener"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fallback" style="display:none">AOL<b>·</b></span></a><span class="lgdiv">|</span><span class="cobrand"><img src="assets/lgn-logo.png" alt="LGN" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"><span class="lgnfb">LGN</span></span><span class="tagchip" data-ar="الوكيل التنفيذي" data-en="Agentic Tour">الوكيل التنفيذي</span></div>
   <div class="controls"><button class="btn" id="langBtn" onclick="toggleLang()">EN</button><a class="btn" href="AOL-AI-Hub.html" data-ar="↩ المنصة" data-en="↩ Hub">↩ المنصة</a></div>
 </header>
 
@@ -111,7 +119,7 @@ html[lang=ar] .bp h3{font-size:20px}
   <div class="vs reveal">
     <div class="box"><div class="tag" data-ar="روبوت محادثة" data-en="Chatbot">روبوت محادثة</div><h3 data-ar="يجيب على سؤال" data-en="Answers a question">يجيب على سؤال</h3>
       <ul><li data-ar="يردّ بنص واحد في كل مرة." data-en="Replies with one block of text.">يردّ بنص واحد في كل مرة.</li><li data-ar="لا يصل إلى أنظمتك." data-en="No access to your systems.">لا يصل إلى أنظمتك.</li><li data-ar="أنت تنفّذ كل خطوة يدويًا." data-en="You execute every step by hand.">أنت تنفّذ كل خطوة يدويًا.</li></ul></div>
-    <div class="vsmid">→</div>
+    <div class="vsmid"><span data-ar="←" data-en="→">←</span></div>
     <div class="box agent"><div class="tag" data-ar="وكيل" data-en="Agent">وكيل</div><h3 data-ar="يُنجز مهمة كاملة" data-en="Completes a whole task">يُنجز مهمة كاملة</h3>
       <ul><li data-ar="يخطّط ويتخذ خطوات متعددة." data-en="Plans and takes multiple steps.">يخطّط ويتخذ خطوات متعددة.</li><li data-ar="يستخدم أدوات وملفات وأنظمة (بإذن)." data-en="Uses tools, files and systems (with permission).">يستخدم أدوات وملفات وأنظمة (بإذن).</li><li data-ar="يتوقّف لموافقتك قبل الإجراءات الحساسة." data-en="Pauses for your approval before sensitive actions.">يتوقّف لموافقتك قبل الإجراءات الحساسة.</li></ul></div>
   </div>
@@ -146,14 +154,14 @@ html[lang=ar] .bp h3{font-size:20px}
   </div>
 
   <div class="note reveal">
-    <h3 style="margin:0 0 6px" data-ar="ملاحظة للميسّر" data-en="Facilitator note">ملاحظة للميسّر</h3>
+    <h3 style="margin:0 0 6px" data-ar="ملاحظة للمدرب" data-en="Facilitator note">ملاحظة للمدرب</h3>
     <p style="margin:0;color:var(--muted)" data-ar="اعرض «التفويض» لا «الإملاء»: شغّل مخطط «منسّق القبول»، وتوقّف عند بوابة الموافقة لتوضيح أن الإنسان يبقى صاحب القرار النهائي." data-en="Show delegation, not dictation: run the “Enrolment Concierge” blueprint and pause at the approval gate to make clear the human stays the final decision-maker.">اعرض «التفويض» لا «الإملاء»: شغّل مخطط «منسّق القبول»، وتوقّف عند بوابة الموافقة لتوضيح أن الإنسان يبقى صاحب القرار النهائي.</p>
   </div>
 </main>
 
 <footer class="site wrap">
   <div class="row"><div class="lockup"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="footfall" style="display:none">AOL<b>·</b></span></div>
-  <div class="partner" data-ar="مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم" data-en="An internal AI-enablement initiative · Academy of Learning">مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم</div></div>
+  <div class="partner" data-ar="بالشراكة مع LGN · أكاديمية التعلم" data-en="In partnership with LGN · Academy of Learning">بالشراكة مع LGN · أكاديمية التعلم</div></div>
   <p class="disclaimer" data-ar="المسارات أدناه توضيحية. لا يُنفّذ الوكيل إجراءً غير قابل للتراجع دون موافقة بشرية. الأدوات قابلة للتغيير؛ تحقّق قبل الاعتماد." data-en="The traces below are illustrative. An agent performs no irreversible action without human approval. Tools change; verify before relying on them.">المسارات أدناه توضيحية…</p>
 </footer>
 
