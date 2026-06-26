@@ -116,6 +116,21 @@ html[lang=ar] .card h3{font-size:22px}
 @keyframes qrpop{from{transform:scale(.9);opacity:0}to{transform:none;opacity:1}}
 .qrbox img{width:min(82vmin,560px);height:auto;border-radius:22px;background:#fff;padding:12px;box-shadow:var(--shadow)}
 .qrbox .qrurl{color:var(--muted);font-family:var(--mono);font-size:14px}
+/* LGN work-with section */
+.lgnwrap{margin:36px 0 8px}
+.lgnhead{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.lgnhead .chip{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:9px;height:40px;padding:0 12px}
+.lgnhead .chip img{height:26px;display:block}.lgnhead .chip .fb{display:none;color:#0E244C;font-weight:800;font-size:18px}
+.lgnhead h2{margin:0;font-size:26px}
+.lgnlead{color:var(--muted);max-width:780px;margin:4px 0 18px;font-size:16px}
+.lgngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:14px}
+.lgncard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;transition:.2s}
+.lgncard:hover{transform:translateY(-3px);border-color:var(--accent)}
+.lgncard .ic{font-size:24px}.lgncard h4{margin:6px 0 4px;font-size:16px}.lgncard p{margin:0;color:var(--muted);font-size:13.5px}
+.lgncard.prod{border-color:rgba(249,164,36,.5);background:linear-gradient(180deg,rgba(249,164,36,.1),var(--panel))}
+.lgncard.prod .ptag{display:inline-block;font-size:10.5px;font-weight:800;color:#10203f;background:var(--accent);border-radius:6px;padding:2px 8px;margin-bottom:6px}
+html[lang=ar] .lgncard p{font-size:14.5px;line-height:1.85}
+html[lang=ar] .lgnlead{font-size:17px;line-height:1.9}
 </style>
 </head>
 <body>
@@ -210,6 +225,20 @@ html[lang=ar] .card h3{font-size:22px}
       <div class="chips"><span class="chip">NPS</span><span class="chip" data-ar="تصدير Excel" data-en="Excel export">تصدير Excel</span></div>
       <div class="open" data-ar="افتح ←" data-en="Open →">افتح ←</div>
     </a>
+  </section>
+
+  <section class="lgnwrap reveal">
+    <div class="lgnhead"><span class="chip"><img src="assets/lgn-logo.png" alt="LGN" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fb">LGN</span></span>
+      <h2 data-ar="العمل مع LGN" data-en="Work with LGN">العمل مع LGN</h2></div>
+    <p class="lgnlead" data-ar="LGN هي شريك تمكين الذكاء الاصطناعي الذي يحوّل هذا العرض إلى واقع داخل أكاديمية التعلم — من الاستراتيجية إلى البناء والحوكمة، إضافةً إلى منتجات تعليمية جاهزة." data-en="LGN is the AI enablement partner that turns this showcase into reality at Academy of Learning — from strategy to build to governance, plus ready education products.">LGN هي شريك تمكين الذكاء الاصطناعي الذي يحوّل هذا العرض إلى واقع داخل أكاديمية التعلم — من الاستراتيجية إلى البناء والحوكمة، إضافةً إلى منتجات تعليمية جاهزة.</p>
+    <div class="lgngrid">
+      <div class="lgncard"><div class="ic">🧭</div><h4 data-ar="الاستراتيجية والاستشارات" data-en="AI strategy & advisory">الاستراتيجية والاستشارات</h4><p data-ar="اكتشاف حالات الاستخدام، خارطة الطريق، وتمكين القيادة." data-en="Use-case discovery, roadmap, and leadership enablement.">اكتشاف حالات الاستخدام، خارطة الطريق، وتمكين القيادة.</p></div>
+      <div class="lgncard"><div class="ic">🤖</div><h4 data-ar="الوكلاء والأتمتة المخصّصة" data-en="Custom agents & automation">الوكلاء والأتمتة المخصّصة</h4><p data-ar="بناء وتكامل الوكلاء والروبوتات وأتمتة سير العمل مع أنظمتكم." data-en="Build & integrate agents, chatbots, and workflow automation with your systems.">بناء وتكامل الوكلاء والروبوتات وأتمتة سير العمل مع أنظمتكم.</p></div>
+      <div class="lgncard"><div class="ic">🎓</div><h4 data-ar="التدريب والتمكين" data-en="Training & enablement">التدريب والتمكين</h4><p data-ar="ورش عمل للموظفين، تدريب على الأوامر، وإدارة التغيير." data-en="Staff workshops, prompt training, and change management.">ورش عمل للموظفين، تدريب على الأوامر، وإدارة التغيير.</p></div>
+      <div class="lgncard"><div class="ic">🛡️</div><h4 data-ar="الحوكمة والامتثال والسيادة" data-en="Governance, compliance & sovereignty">الحوكمة والامتثال والسيادة</h4><p data-ar="PDPL/سدايا، ISO/IEC 42001، ونشر آمن داخل المملكة." data-en="PDPL/SDAIA, ISO/IEC 42001, and secure in-Kingdom deployment.">PDPL/سدايا، ISO/IEC 42001، ونشر آمن داخل المملكة.</p></div>
+      <div class="lgncard prod"><span class="ptag" data-ar="منتج" data-en="Product">منتج</span><div class="ic">📚</div><h4>AI Learning Assistant</h4><p data-ar="مساعد ذكي يرافق المتدرب: إجابات فورية، تمارين، ومتابعة تقدّم." data-en="An AI assistant that accompanies the trainee: instant answers, exercises, and progress tracking.">مساعد ذكي يرافق المتدرب: إجابات فورية، تمارين، ومتابعة تقدّم.</p></div>
+      <div class="lgncard prod"><span class="ptag" data-ar="منتج" data-en="Product">منتج</span><div class="ic">🧒</div><h4>AI Kids Club</h4><p data-ar="برنامج ممتع يعرّف الأطفال بالذكاء الاصطناعي بأمان وإبداع." data-en="A fun program introducing children to AI safely and creatively.">برنامج ممتع يعرّف الأطفال بالذكاء الاصطناعي بأمان وإبداع.</p></div>
+    </div>
   </section>
 
   <section class="panel reveal">
