@@ -90,6 +90,17 @@ footer.site .fallback b{color:var(--accent)}
 .reveal.in{opacity:1;transform:none}
 @media(max-width:760px){.panel{grid-template-columns:1fr}.qr{border-inline-start:0;border-top:1px solid var(--line);padding-inline-start:0;padding-top:18px}}
 [hidden]{display:none!important}
+/* ===== Arabic readability boost (applies only when lang=ar) ===== */
+html[lang=ar] body{font-family:"SF Arabic","Geeza Pro","Tajawal","Cairo","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif}
+html[lang=ar] p,html[lang=ar] li{line-height:1.95}
+html[lang=ar] .sub{font-size:19.5px;line-height:1.95}
+html[lang=ar] .seclead{font-size:16.5px;line-height:1.9}
+html[lang=ar] .card p,html[lang=ar] .panel p,html[lang=ar] .flow{font-size:15.5px;line-height:1.9}
+html[lang=ar] .flow{font-size:14.5px}
+html[lang=ar] .chip,html[lang=ar] .who,html[lang=ar] .tagchip,html[lang=ar] .partner,html[lang=ar] .qr small{font-size:13.5px}
+html[lang=ar] .disclaimer{font-size:13px;line-height:1.85}
+html[lang=ar] .btn,html[lang=ar] .open{font-size:15px}
+html[lang=ar] .card h3{font-size:22px}
 </style>
 </head>
 <body>
@@ -169,8 +180,8 @@ footer.site .fallback b{color:var(--accent)}
       <div class="num">05</div><div class="ico">🗺️</div>
       <h3 data-ar="ما القادم — خارطة الطريق" data-en="What's Next — Roadmap">ما القادم — خارطة الطريق</h3>
       <div class="who" data-ar="لمن: القيادة" data-en="For: leadership">لمن: القيادة</div>
-      <p data-ar="الآن / التالي / لاحقًا، وخطة 30-60-90 يومًا، ومؤشرات نجاح، وخطوط خدمات قابلة للبيع (آيزو 42001)."
-         data-en="Now / Next / Later, a 30-60-90 plan, success metrics, and sellable service lines (ISO/IEC 42001).">الآن / التالي / لاحقًا، وخطة 30-60-90 يومًا، ومؤشرات نجاح، وخطوط خدمات قابلة للبيع (آيزو 42001).</p>
+      <p data-ar="الآن / التالي / لاحقًا، وخطة 30-60-90 يومًا، ومؤشرات نجاح، وخطوط خدمات قابلة للبيع (ISO/IEC 42001)."
+         data-en="Now / Next / Later, a 30-60-90 plan, success metrics, and sellable service lines (ISO/IEC 42001).">الآن / التالي / لاحقًا، وخطة 30-60-90 يومًا، ومؤشرات نجاح، وخطوط خدمات قابلة للبيع (ISO/IEC 42001).</p>
       <div class="chips"><span class="chip">30·60·90</span><span class="chip">ISO/IEC 42001</span></div>
       <div class="open" data-ar="افتح ←" data-en="Open →">افتح ←</div>
     </a>

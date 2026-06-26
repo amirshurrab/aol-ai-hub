@@ -69,6 +69,20 @@ footer.site img{height:28px}.footfall{font-weight:800;color:#fff}.footfall b{col
 .reveal{opacity:0;transform:translateY(16px);transition:.6s}.reveal.in{opacity:1;transform:none}
 [hidden]{display:none!important}
 @media(max-width:520px){.starter{flex-direction:column;align-items:flex-start}}
+/* ===== Arabic readability boost (applies only when lang=ar) ===== */
+html[lang=ar] body{font-family:"SF Arabic","Geeza Pro","Tajawal","Cairo","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif}
+html[lang=ar] p,html[lang=ar] li{line-height:1.95}
+html[lang=ar] .sub{font-size:19px;line-height:1.95}
+html[lang=ar] .seclead{font-size:16.5px;line-height:1.9}
+html[lang=ar] .pain,html[lang=ar] .run .out,html[lang=ar] .idea span,html[lang=ar] .guide li{font-size:15px;line-height:1.9}
+html[lang=ar] .demo h3{font-size:20px}
+html[lang=ar] .area,html[lang=ar] .tagchip{font-size:13.5px}
+/* Arabic prompt boxes: drop monospace, use a readable Arabic font, larger */
+html[lang=ar] .promptbox,html[lang=ar] .starter code{font-family:"SF Arabic","Geeza Pro","Tajawal","Segoe UI",sans-serif;font-size:15px;line-height:2}
+html[lang=ar] .run .out h4{font-size:16px}
+html[lang=ar] .btn,html[lang=ar] .copybtn{font-size:14.5px}
+html[lang=ar] .disclaimer{font-size:13px;line-height:1.85}
+html[lang=ar] .idea b{font-size:15px}
 </style>
 </head>
 <body>
