@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>منصة الذكاء الاصطناعي · أكاديمية التعلم — AI Hub</title>
+<style>
+:root{
+  --bg:#070f22; --bg2:#0b1530; --panel:#101c3d; --panel2:#16244d; --line:#27376b;
+  --ink:#eef2fb; --muted:#a8b7da; --muted2:#7286b3;
+  --accent:#F9A424;        /* AoL gold */
+  --accent2:#ffc76b;       /* lighter gold */
+  --navy:#0E244C;
+  --green:#5fbf8a; --amber:#e0a93f; --blue:#5b8def; --violet:#a98ce0; --red:#e06a6a;
+  --radius:18px; --shadow:0 18px 50px rgba(0,0,0,.55);
+  --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Tajawal","Cairo",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:radial-gradient(1200px 700px at 80% -12%,#13265a 0%,var(--bg) 58%);
+  color:var(--ink);font-family:var(--sans);line-height:1.65;min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+a{color:inherit;text-decoration:none}
+/* header */
+header.site{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px 22px;max-width:1180px;margin:0 auto;flex-wrap:wrap}
+.lockup{display:flex;align-items:center;gap:14px}
+.lockup img{height:42px;width:auto;display:block}
+.lockup .fallback{font-weight:800;font-size:22px;letter-spacing:.5px;color:#fff}
+.lockup .fallback b{color:var(--accent)}
+.tagchip{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:rgba(255,255,255,.02)}
+.controls{display:flex;align-items:center;gap:10px}
+.btn{cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);
+  border-radius:999px;padding:9px 16px;font-size:14px;font-family:inherit;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.btn.solid{background:var(--accent);color:#10203f;border-color:var(--accent);font-weight:700}
+.btn.solid:hover{background:var(--accent2);color:#10203f}
+/* hero */
+.hero{padding:34px 0 14px;text-align:center}
+.eyebrow{color:var(--accent);font-weight:700;letter-spacing:1px;font-size:13px;text-transform:uppercase;margin-bottom:14px}
+h1.title{font-size:clamp(30px,5vw,52px);line-height:1.15;margin:.1em 0;font-weight:850;
+  background:linear-gradient(120deg,#fff,var(--accent2),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:clamp(15px,2vw,19px);max-width:760px;margin:14px auto 0}
+.flow{margin:22px auto 0;display:inline-flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:13px;color:var(--muted2)}
+.flow span{border:1px dashed var(--line);border-radius:999px;padding:6px 12px}
+.flow b{color:var(--accent2);font-weight:700}
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;margin:34px 0}
+.card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;transition:.22s;overflow:hidden;display:flex;flex-direction:column;min-height:208px}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(420px 200px at 100% 0,rgba(249,164,36,.12),transparent 60%);opacity:0;transition:.22s;pointer-events:none}
+.card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow)}
+.card:hover::after{opacity:1}
+.card .num{font-family:var(--mono);font-size:13px;color:var(--muted2)}
+.card .ico{font-size:30px;margin:6px 0 8px}
+.card h3{margin:.1em 0 .2em;font-size:21px}
+.card .who{font-size:12.5px;color:var(--accent2);font-weight:700;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:rgba(255,255,255,.02)}
+.open{margin-top:14px;color:var(--accent);font-weight:700;font-size:14px;opacity:.75;transition:.2s}
+.card:hover .open{opacity:1;letter-spacing:.5px}
+.ribbon{position:absolute;inset-inline-start:0;top:16px;background:var(--accent);color:#10203f;font-weight:800;font-size:12px;padding:5px 14px;border-radius:0 999px 999px 0}
+html[dir=ltr] .ribbon{border-radius:999px 0 0 999px}
+/* survey + QR panel */
+.panel{display:grid;grid-template-columns:1.3fr .9fr;gap:18px;background:linear-gradient(180deg,var(--panel),var(--bg2));
+  border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin:8px 0 30px}
+.panel h2{margin:0 0 8px;font-size:24px}
+.panel p{color:var(--muted);margin:0 0 16px}
+.qr{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-inline-start:1px solid var(--line);padding-inline-start:18px}
+.qr img{width:172px;height:172px;border-radius:14px;background:#fff;padding:8px;object-fit:contain}
+.qr .ph{width:172px;height:172px;border-radius:14px;border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted2);font-size:12px;text-align:center;padding:14px}
+.qr small{color:var(--muted2)}
+/* footer */
+footer.site{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 50px}
+footer.site .row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer.site img{height:30px;opacity:.95}
+footer.site .fallback{font-weight:800;color:#fff}
+footer.site .fallback b{color:var(--accent)}
+.partner{font-size:13px;color:var(--muted)}
+.disclaimer{color:var(--muted2);font-size:12px;margin-top:14px;max-width:780px;line-height:1.6}
+/* toast */
+#toast{position:fixed;inset-inline:0;bottom:26px;margin:auto;width:max-content;max-width:90%;background:var(--accent);color:#10203f;
+  font-weight:700;padding:11px 20px;border-radius:999px;opacity:0;transform:translateY(14px);transition:.3s;pointer-events:none;z-index:99}
+#toast.show{opacity:1;transform:translateY(0)}
+.reveal{opacity:0;transform:translateY(16px);transition:.6s}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:760px){.panel{grid-template-columns:1fr}.qr{border-inline-start:0;border-top:1px solid var(--line);padding-inline-start:0;padding-top:18px}}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="lockup">
+    <a href="https://aol.edu.sa" target="_blank" rel="noopener">
+      <img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="fallback" style="display:none">AOL<b>·</b></span>
+    </a>
+    <span class="tagchip" data-ar="منصة تمكين الذكاء الاصطناعي" data-en="AI Enablement Hub">منصة تمكين الذكاء الاصطناعي</span>
+  </div>
+  <div class="controls">
+    <button class="btn" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero reveal">
+    <div class="eyebrow" data-ar="أكاديمية التعلم · رؤية 2030" data-en="Academy of Learning · Vision 2030">أكاديمية التعلم · رؤية 2030</div>
+    <h1 class="title" data-ar="الذكاء الاصطناعي في خدمة موطن الكفاءات" data-en="Artificial Intelligence for the Home of Excellence">الذكاء الاصطناعي في خدمة موطن الكفاءات</h1>
+    <p class="sub" data-ar="جولة تفاعلية تُظهر كيف يرفع الذكاء الاصطناعي جودة التعليم والتشغيل في أكاديمية التعلم — من تسويق الدبلومات وخدمة المتدربين إلى إعداد التقارير والاعتمادات — مع حوكمة مسؤولة وخيارات سيادية تحفظ البيانات داخل المملكة."
+       data-en="An interactive tour of how AI lifts teaching quality and operations across the Academy — from diploma marketing and trainee service to reporting and accreditation — with responsible governance and sovereign options that keep data inside the Kingdom.">جولة تفاعلية تُظهر كيف يرفع الذكاء الاصطناعي جودة التعليم والتشغيل في أكاديمية التعلم — من تسويق الدبلومات وخدمة المتدربين إلى إعداد التقارير والاعتمادات — مع حوكمة مسؤولة وخيارات سيادية تحفظ البيانات داخل المملكة.</p>
+    <div class="flow">
+      <span data-ar="مسار مقترح:" data-en="Suggested flow:">مسار مقترح:</span>
+      <span><b>1</b> <span data-ar="عرض القدرات" data-en="Capability Demo">عرض القدرات</span></span>
+      <span><b>2</b> <span data-ar="الجولة الوكيلة" data-en="Agentic Tour">الجولة الوكيلة</span></span>
+      <span><b>3</b> <span data-ar="مكتبة الأوامر" data-en="Prompt Library">مكتبة الأوامر</span></span>
+      <span><b>4</b> <span data-ar="حقيبة الأدوات" data-en="AI Toolkit">حقيبة الأدوات</span></span>
+      <span><b>5</b> <span data-ar="ما القادم" data-en="What's Next">ما القادم</span></span>
+    </div>
+  </section>
+
+  <section class="grid">
+    <a class="card reveal" href="AOL-AI-Demo.html">
+      <div class="ribbon" data-ar="★ ابدأ هنا" data-en="★ Start here">★ ابدأ هنا</div>
+      <div class="num">01</div><div class="ico">✨</div>
+      <h3 data-ar="عرض قدرات الذكاء الاصطناعي" data-en="AI Capability Demo">عرض قدرات الذكاء الاصطناعي</h3>
+      <div class="who" data-ar="لمن: جديد على الذكاء الاصطناعي" data-en="For: new to AI">لمن: جديد على الذكاء الاصطناعي</div>
+      <p data-ar="ستة مهام حقيقية من عمل الأكاديمية — قبل/بعد — مع الأمر الجاهز ونتيجة واقعية بضغطة زر."
+         data-en="Six real Academy tasks — before/after — with the ready prompt and a realistic output at the click of a button.">ستة مهام حقيقية من عمل الأكاديمية — قبل/بعد — مع الأمر الجاهز ونتيجة واقعية بضغطة زر.</p>
+      <div class="chips"><span class="chip" data-ar="تفاعلي" data-en="Interactive">تفاعلي</span><span class="chip" data-ar="أوامر جاهزة" data-en="Copy prompts">أوامر جاهزة</span><span class="chip">~10 min</span></div>
+      <div class="open" data-ar="افتح ←" data-en="Open →">افتح ←</div>
+    </a>
+
+    <a class="card reveal" href="AOL-Agentic-Tour.html">
+      <div class="num">02</div><div class="ico">🤖</div>
+      <h3 data-ar="الجولة الوكيلة (Agents)" data-en="Agentic Tour">الجولة الوكيلة (Agents)</h3>
+      <div class="who" data-ar="لمن: من جرّب الأوامر" data-en="For: already prompting">لمن: من جرّب الأوامر</div>
+      <p data-ar="الفرق بين روبوت المحادثة والوكيل، ومخططات وكلاء تنفّذ مهامًا كاملة مع بوابة موافقة بشرية."
+         data-en="Chatbot vs. agent, plus agent blueprints that execute full tasks with a human approval gate.">الفرق بين روبوت المحادثة والوكيل، ومخططات وكلاء تنفّذ مهامًا كاملة مع بوابة موافقة بشرية.</p>
+      <div class="chips"><span class="chip" data-ar="مخططات وكلاء" data-en="Blueprints">مخططات وكلاء</span><span class="chip" data-ar="حوكمة" data-en="Governance">حوكمة</span></div>
+      <div class="open" data-ar="افتح ←" data-en="Open →">افتح ←</div>
+    </a>
+
+    <a class="card reveal" href="AOL-Prompt-Library.html">
+      <div class="num">03</div><div class="ico">📚</div>
+      <h3 data-ar="مكتبة الأوامر الاحترافية" data-en="Pro Prompt Library">مكتبة الأوامر الاحترافية</h3>
+      <div class="who" data-ar="لمن: كل الفرق" data-en="For: every team">لمن: كل الفرق</div>
+      <p data-ar="أوامر جاهزة لـ Claude و Gamma و NotebookLM مهيّأة لعمل الأكاديمية، بحقول قابلة للتعبئة."
+         data-en="Ready prompts for Claude, Gamma and NotebookLM tuned to Academy work, with fill-in placeholders.">أوامر جاهزة لـ Claude و Gamma و NotebookLM مهيّأة لعمل الأكاديمية، بحقول قابلة للتعبئة.</p>
+      <div class="chips"><span class="chip">Claude</span><span class="chip">Gamma</span><span class="chip">NotebookLM</span></div>
+      <div class="open" data-ar="افتح ←" data-en="Open →">افتح ←</div>
+    </a>
+
+    <a class="card reveal" href="AOL-AI-Toolkit.html">
+      <div class="num">04</div><div class="ico">🧰</div>
+      <h3 data-ar="حقيبة الأدوات" data-en="AI Toolkit">حقيبة الأدوات</h3>
+      <div class="who" data-ar="لمن: كل الفرق" data-en="For: every team">لمن: كل الفرق</div>
+      <p data-ar="أكثر من 20 أداة حديثة مُصنّفة، تشمل الخيار السيادي السعودي (HUMAIN/ALLaM) مع ملاحظات حفظ البيانات."
+         data-en="20+ current tools, categorized — including the Saudi sovereign option (HUMAIN/ALLaM) with data-residency notes.">أكثر من 20 أداة حديثة مُصنّفة، تشمل الخيار السيادي السعودي (HUMAIN/ALLaM) مع ملاحظات حفظ البيانات.</p>
+      <div class="chips"><span class="chip" data-ar="سيادي" data-en="Sovereign">سيادي</span><span class="chip" data-ar="موثّق حديثًا" data-en="Web-verified">موثّق حديثًا</span></div>
+      <div class="open" data-ar="افتح ←" data-en="Open →">افتح ←</div>
+    </a>
+
+    <a class="card reveal" href="AOL-Whats-Next.html">
+      <div class="num">05</div><div class="ico">🗺️</div>
+      <h3 data-ar="ما القادم — خارطة الطريق" data-en="What's Next — Roadmap">ما القادم — خارطة الطريق</h3>
+      <div class="who" data-ar="لمن: القيادة" data-en="For: leadership">لمن: القيادة</div>
+      <p data-ar="الآن / التالي / لاحقًا، وخطة 30-60-90 يومًا، ومؤشرات نجاح، وخطوط خدمات قابلة للبيع (آيزو 42001)."
+         data-en="Now / Next / Later, a 30-60-90 plan, success metrics, and sellable service lines (ISO/IEC 42001).">الآن / التالي / لاحقًا، وخطة 30-60-90 يومًا، ومؤشرات نجاح، وخطوط خدمات قابلة للبيع (آيزو 42001).</p>
+      <div class="chips"><span class="chip">30·60·90</span><span class="chip">ISO/IEC 42001</span></div>
+      <div class="open" data-ar="افتح ←" data-en="Open →">افتح ←</div>
+    </a>
+
+    <a class="card reveal" href="AOL-Survey.html">
+      <div class="num">06</div><div class="ico">📝</div>
+      <h3 data-ar="استبيان الجلسة" data-en="Session Survey">استبيان الجلسة</h3>
+      <div class="who" data-ar="لمن: الحضور" data-en="For: attendees">لمن: الحضور</div>
+      <p data-ar="تقييم سريع (1–5)، ومؤشر التوصية (0–10)، وملاحظات مفتوحة — تُحفظ في Google Sheet مع نسخة احتياطية محلية."
+         data-en="Quick ratings (1–5), an NPS (0–10), and open feedback — saved to a Google Sheet with a local backup.">تقييم سريع (1–5)، ومؤشر التوصية (0–10)، وملاحظات مفتوحة — تُحفظ في Google Sheet مع نسخة احتياطية محلية.</p>
+      <div class="chips"><span class="chip">NPS</span><span class="chip" data-ar="تصدير Excel" data-en="Excel export">تصدير Excel</span></div>
+      <div class="open" data-ar="افتح ←" data-en="Open →">افتح ←</div>
+    </a>
+  </section>
+
+  <section class="panel reveal">
+    <div>
+      <h2 data-ar="شاركنا رأيك في الجلسة" data-en="Share your feedback">شاركنا رأيك في الجلسة</h2>
+      <p data-ar="رأيك يساعدنا على تطوير تمكين الذكاء الاصطناعي داخل الأكاديمية. امسح الرمز أو افتح النموذج مباشرة."
+         data-en="Your input helps us improve AI enablement across the Academy. Scan the code or open the form directly.">رأيك يساعدنا على تطوير تمكين الذكاء الاصطناعي داخل الأكاديمية. امسح الرمز أو افتح النموذج مباشرة.</p>
+      <div class="controls">
+        <a class="btn solid" href="AOL-Survey.html" data-ar="افتح النموذج" data-en="Open the form">افتح النموذج</a>
+        <button class="btn" onclick="copyLink()" data-ar="انسخ الرابط" data-en="Copy link">انسخ الرابط</button>
+      </div>
+    </div>
+    <div class="qr">
+      <img src="AOL-hub-qr.png" alt="QR" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
+      <div class="ph" hidden data-ar="سيظهر رمز الاستجابة السريعة بعد النشر على الإنترنت" data-en="QR appears after the hub is deployed online">سيظهر رمز الاستجابة السريعة بعد النشر على الإنترنت</div>
+      <small data-ar="امسح للوصول إلى المنصة" data-en="Scan to open the hub">امسح للوصول إلى المنصة</small>
+    </div>
+  </section>
+</main>
+
+<footer class="site wrap">
+  <div class="row">
+    <div class="lockup">
+      <img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span class="fallback" style="display:none">AOL<b>·</b></span>
+    </div>
+    <div class="partner" data-ar="مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم" data-en="An internal AI-enablement initiative · Academy of Learning">مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم</div>
+  </div>
+  <p class="disclaimer" data-ar="المحتوى والمخرجات المعروضة هنا توضيحية وغير سرية، وتمثّل مسودة أولى يراجعها مختص مؤهل قبل أي استخدام رسمي. تتطلب الإجراءات غير القابلة للتراجع موافقة بشرية. الأدوات والأسعار قابلة للتغيير؛ يُرجى التحقق قبل الاعتماد."
+     data-en="All content and outputs shown here are illustrative and non-confidential — a first draft that a qualified human reviews before any official use. Irreversible actions require human approval. Tools and pricing change; verify before relying on them.">المحتوى والمخرجات المعروضة هنا توضيحية وغير سرية، وتمثّل مسودة أولى يراجعها مختص مؤهل قبل أي استخدام رسمي. تتطلب الإجراءات غير القابلة للتراجع موافقة بشرية. الأدوات والأسعار قابلة للتغيير؛ يُرجى التحقق قبل الاعتماد.</p>
+</footer>
+
+<div id="toast"></div>
+<script>
+/* ---------- i18n ---------- */
+function applyLang(lang){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = (lang==='ar')?'rtl':'ltr';
+  document.querySelectorAll('[data-ar]').forEach(function(el){
+    var v = el.getAttribute('data-'+lang);
+    if(v!==null) el.innerHTML = v;
+  });
+  var b=document.getElementById('langBtn'); if(b) b.textContent = (lang==='ar')?'EN':'عربي';
+  try{localStorage.setItem('aol_lang',lang);}catch(e){}
+}
+function toggleLang(){ applyLang(document.documentElement.lang==='ar'?'en':'ar'); }
+(function(){ var s='ar'; try{s=localStorage.getItem('aol_lang')||'ar';}catch(e){} applyLang(s); })();
+
+/* ---------- toast + copy ---------- */
+function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},1900);}
+function copyText(s,msg){navigator.clipboard.writeText(s).then(function(){toast(msg|| (document.documentElement.lang==='ar'?'تم النسخ ✓':'Copied ✓'));},function(){toast('—');});}
+function copyLink(){copyText(location.href, document.documentElement.lang==='ar'?'تم نسخ الرابط ✓':'Link copied ✓');}
+
+/* ---------- reveal on scroll ---------- */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>

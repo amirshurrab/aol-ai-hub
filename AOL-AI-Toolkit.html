@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>حقيبة الأدوات · أكاديمية التعلم</title>
+<style>
+:root{
+  --bg:#070f22; --bg2:#0b1530; --panel:#101c3d; --panel2:#16244d; --line:#27376b;
+  --ink:#eef2fb; --muted:#a8b7da; --muted2:#7286b3;
+  --accent:#F9A424; --accent2:#ffc76b; --navy:#0E244C;
+  --green:#5fbf8a; --blue:#5b8def; --violet:#a98ce0; --red:#e06a6a;
+  --radius:18px; --shadow:0 18px 50px rgba(0,0,0,.55);
+  --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Tajawal","Cairo",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:radial-gradient(1200px 700px at 80% -12%,#13265a 0%,var(--bg) 58%);color:var(--ink);font-family:var(--sans);line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+a{color:inherit;text-decoration:none}
+header.site{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px 22px;max-width:1140px;margin:0 auto;flex-wrap:wrap}
+.lockup{display:flex;align-items:center;gap:14px}.lockup img{height:40px;width:auto;display:block}
+.lockup .fallback{font-weight:800;font-size:22px;color:#fff}.lockup .fallback b{color:var(--accent)}
+.tagchip{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:rgba(255,255,255,.02)}
+.controls{display:flex;align-items:center;gap:10px}
+.btn{cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);border-radius:999px;padding:9px 16px;font-size:14px;font-family:inherit;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.hero{padding:26px 0 6px}
+.eyebrow{color:var(--accent);font-weight:700;letter-spacing:1px;font-size:13px;text-transform:uppercase}
+h1.title{font-size:clamp(26px,4.4vw,42px);line-height:1.16;margin:.18em 0;font-weight:850;background:linear-gradient(120deg,#fff,var(--accent2),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:clamp(15px,2vw,18px);max-width:840px}
+.stackbox{background:linear-gradient(180deg,rgba(249,164,36,.1),var(--bg2));border:1px solid rgba(249,164,36,.35);border-radius:var(--radius);padding:18px 20px;margin:20px 0}
+.stackbox h3{margin:0 0 6px;color:var(--accent)}
+.stackbox .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.stackbox .pills span{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--ink)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.fchip{cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);border-radius:999px;padding:8px 14px;font-size:13.5px;font-family:inherit;transition:.2s}
+.fchip.active{background:var(--accent);color:#10203f;border-color:var(--accent);font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.tool{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;transition:.2s}
+.tool:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:var(--shadow)}
+.tool.sov{border-color:rgba(95,191,138,.5);box-shadow:0 0 0 1px rgba(95,191,138,.15)}
+.tool .h{display:flex;align-items:center;gap:10px}
+.tool .ic{font-size:24px}.tool h3{margin:0;font-size:17px}
+.tool .cat{font-size:11.5px;color:var(--accent2);font-weight:700;margin:6px 0 8px}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+.b{font-size:10.5px;border-radius:6px;padding:2px 7px;font-weight:700;border:1px solid}
+.b.free{color:var(--green);border-color:rgba(95,191,138,.4);background:rgba(95,191,138,.08)}
+.b.region{color:var(--accent2);border-color:rgba(255,199,107,.4);background:rgba(255,199,107,.08)}
+.b.ent{color:var(--blue);border-color:rgba(91,141,239,.4);background:rgba(91,141,239,.08)}
+.b.agent{color:var(--violet);border-color:rgba(169,140,224,.4);background:rgba(169,140,224,.08)}
+.b.sovb{color:var(--green);border-color:var(--green);background:rgba(95,191,138,.14)}
+.tool p{margin:0 0 6px;font-size:13.5px;color:var(--muted);flex:1}
+.tool .why{font-size:12.5px;color:var(--ink);background:rgba(255,255,255,.03);border-inline-start:3px solid var(--accent);border-radius:6px;padding:7px 10px;margin-bottom:10px}
+.tool .acts{display:flex;gap:8px}
+.visit{flex:1;text-align:center;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:7px 0;font-size:13px;font-weight:700;transition:.2s}
+.visit:hover{background:var(--accent);color:#10203f}
+.copybtn{cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);border-radius:999px;padding:7px 12px;font-size:12.5px;font-family:inherit;transition:.2s}
+.copybtn:hover{border-color:var(--accent);color:var(--accent)}
+.gov{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin:24px 0}
+.gov h3{margin:0 0 6px;color:var(--accent)}
+footer.site{border-top:1px solid var(--line);margin-top:10px;padding:26px 0 50px}
+footer.site .row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer.site img{height:28px}.footfall{font-weight:800;color:#fff}.footfall b{color:var(--accent)}
+.partner{font-size:13px;color:var(--muted)}.disclaimer{color:var(--muted2);font-size:12px;margin-top:14px;max-width:840px;line-height:1.6}
+#toast{position:fixed;inset-inline:0;bottom:26px;margin:auto;width:max-content;max-width:90%;background:var(--accent);color:#10203f;font-weight:700;padding:11px 20px;border-radius:999px;opacity:0;transform:translateY(14px);transition:.3s;pointer-events:none;z-index:99}#toast.show{opacity:1;transform:none}
+.reveal{opacity:0;transform:translateY(16px);transition:.6s}.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="lockup"><a href="https://aol.edu.sa" target="_blank" rel="noopener"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fallback" style="display:none">AOL<b>·</b></span></a><span class="tagchip" data-ar="حقيبة الأدوات" data-en="AI Toolkit">حقيبة الأدوات</span></div>
+  <div class="controls"><button class="btn" id="langBtn" onclick="toggleLang()">EN</button><a class="btn" href="AOL-AI-Hub.html" data-ar="↩ المنصة" data-en="↩ Hub">↩ المنصة</a></div>
+</header>
+
+<main class="wrap">
+  <section class="hero reveal">
+    <div class="eyebrow" data-ar="موثّقة حديثًا · يونيو 2026" data-en="Web-verified · June 2026">موثّقة حديثًا · يونيو 2026</div>
+    <h1 class="title" data-ar="حقيبة أدوات الذكاء الاصطناعي" data-en="The AI Toolkit">حقيبة أدوات الذكاء الاصطناعي</h1>
+    <p class="sub" data-ar="أدوات حديثة مُصنّفة لعمل الأكاديمية، تتصدّرها الخيارات السيادية السعودية. الشارات: مجاني · يدعم العربية/المنطقة · للمؤسسات · وكيل. تحقّق من الأسعار قبل الاعتماد." data-en="Current tools categorized for Academy work, led by Saudi sovereign options. Badges: free · Arabic/region · enterprise · agentic. Verify pricing before relying on them.">أدوات حديثة مُصنّفة لعمل الأكاديمية، تتصدّرها الخيارات السيادية السعودية. الشارات: مجاني · يدعم العربية/المنطقة · للمؤسسات · وكيل. تحقّق من الأسعار قبل الاعتماد.</p>
+  </section>
+
+  <div class="stackbox reveal">
+    <h3>⭐ <span data-ar="حزمة البداية الموصى بها للأكاديمية" data-en="Recommended starter stack for the Academy">حزمة البداية الموصى بها للأكاديمية</span></h3>
+    <p style="margin:0;color:var(--muted)" data-ar="ابدأ صغيرًا بهذه الخمس، ووسّع لاحقًا:" data-en="Start small with these five, expand later:">ابدأ صغيرًا بهذه الخمس، ووسّع لاحقًا:</p>
+    <div class="pills">
+      <span>1 · HUMAIN Chat (ALLaM) — <span data-ar="عربي سيادي" data-en="sovereign Arabic">عربي سيادي</span></span>
+      <span>2 · Microsoft 365 Copilot — <span data-ar="ضمن بيئتكم الحالية" data-en="inside your current tenant">ضمن بيئتكم الحالية</span></span>
+      <span>3 · Claude — <span data-ar="تفويض ووكلاء" data-en="delegation & agents">تفويض ووكلاء</span></span>
+      <span>4 · Gamma — <span data-ar="عروض" data-en="decks">عروض</span></span>
+      <span>5 · NotebookLM — <span data-ar="بحث مُسنَد" data-en="grounded research">بحث مُسنَد</span></span>
+    </div>
+  </div>
+
+  <div class="filters reveal" id="filters"></div>
+  <div class="grid" id="grid"></div>
+
+  <div class="gov reveal">
+    <h3>🛡️ <span data-ar="حوكمة البيانات (مهم للأكاديمية المدرجة)" data-en="Data governance (important for a listed academy)">حوكمة البيانات (مهم للأكاديمية المدرجة)</span></h3>
+    <p style="margin:0;color:var(--muted)" data-ar="لبيانات المتدربين والمعلومات الحسّاسة، فضّل الخيارات السيادية (HUMAIN/ALLaM) أو الخدمات التي توفّر استضافة داخل المملكة عبر مزوّدين معتمدين. تجنّب لصق بيانات شخصية في الأدوات المجانية العامة، والتزم بضوابط الهيئة السعودية للبيانات والذكاء الاصطناعي (سدايا) ونظام حماية البيانات الشخصية (PDPL)." data-en="For trainee data and sensitive information, prefer sovereign options (HUMAIN/ALLaM) or services offering in-Kingdom hosting via approved providers. Avoid pasting personal data into public free tools, and comply with SDAIA guidance and the Personal Data Protection Law (PDPL).">لبيانات المتدربين والمعلومات الحسّاسة، فضّل الخيارات السيادية (HUMAIN/ALLaM) أو الخدمات التي توفّر استضافة داخل المملكة عبر مزوّدين معتمدين. تجنّب لصق بيانات شخصية في الأدوات المجانية العامة، والتزم بضوابط الهيئة السعودية للبيانات والذكاء الاصطناعي (سدايا) ونظام حماية البيانات الشخصية (PDPL).</p>
+  </div>
+</main>
+
+<footer class="site wrap">
+  <div class="row"><div class="lockup"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="footfall" style="display:none">AOL<b>·</b></span></div>
+  <div class="partner" data-ar="مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم" data-en="An internal AI-enablement initiative · Academy of Learning">مبادرة داخلية لتمكين الذكاء الاصطناعي · أكاديمية التعلم</div></div>
+  <p class="disclaimer" data-ar="القائمة استرشادية وموثّقة في يونيو 2026؛ تتغيّر الأدوات والأسعار والملكية بسرعة. تحقّق من الموقع الرسمي وشروط الخصوصية قبل أي اعتماد مؤسسي." data-en="This list is indicative and verified in June 2026; tools, pricing and ownership change fast. Check the official site and privacy terms before any institutional adoption.">القائمة استرشادية وموثّقة في يونيو 2026…</p>
+</footer>
+
+<div id="toast"></div>
+<script>
+var CATS=[
+ {k:"all",ar:"الكل",en:"All"},
+ {k:"assistant",ar:"مساعدون عامّون",en:"Assistants"},
+ {k:"arabic",ar:"العربية والترجمة",en:"Arabic & Translation"},
+ {k:"present",ar:"العروض والتصميم",en:"Presentations & Design"},
+ {k:"research",ar:"البحث والمعرفة",en:"Research & Knowledge"},
+ {k:"meet",ar:"الاجتماعات",en:"Meetings"},
+ {k:"edu",ar:"أدوات تعليمية",en:"Education tools"},
+ {k:"media",ar:"الوسائط (صوت/صورة/فيديو)",en:"Media (audio/image/video)"}
+];
+var T=[
+ {ic:"🟢",n:"HUMAIN Chat (ALLaM 34B)",cat:"arabic",badges:["sovb","region","free"],sov:true,url:"https://humain.ai",
+  ar:"نموذج عربي سيادي سعودي من HUMAIN، متوفّر على الويب والجوال.",en:"Saudi sovereign Arabic model by HUMAIN, available on web and mobile.",
+  w_ar:"الخيار الأنسب لبيانات الأكاديمية الحسّاسة والمحتوى العربي الرسمي.",w_en:"Best fit for the Academy’s sensitive data and official Arabic content."},
+ {ic:"🟠",n:"Claude",cat:"assistant",badges:["agent","ent"],url:"https://claude.ai",
+  ar:"مساعد قوي للتحليل والكتابة الطويلة والتفويض الوكيل متعدد الخطوات.",en:"A strong assistant for analysis, long-form writing and multi-step agentic delegation.",
+  w_ar:"مثالي لتقارير المجلس، بناء المناهج، والوكلاء.",w_en:"Ideal for board reports, curriculum building and agents."},
+ {ic:"⚫",n:"ChatGPT",cat:"assistant",badges:["free","ent"],url:"https://chatgpt.com",
+  ar:"الأوسع انتشارًا؛ قوي في التوليد العام وتحليل البيانات.",en:"The most widely used; strong at general generation and data analysis.",
+  w_ar:"مدخل سهل للموظفين الجدد على الذكاء الاصطناعي.",w_en:"An easy on-ramp for staff new to AI."},
+ {ic:"🔵",n:"Google Gemini",cat:"assistant",badges:["free","region"],url:"https://gemini.google.com",
+  ar:"مساعد متعدد الوسائط؛ Gemini Pro مجاني عامًا لطلاب الجامعات بالسعودية.",en:"A multimodal assistant; Gemini Pro is free for a year to Saudi university students.",
+  w_ar:"مفيد للمتدربين والبحث السريع متعدد الوسائط.",w_en:"Useful for trainees and quick multimodal research."},
+ {ic:"🟦",n:"Microsoft 365 Copilot",cat:"assistant",badges:["ent","region"],url:"https://www.microsoft.com/microsoft-365/copilot",
+  ar:"الذكاء الاصطناعي داخل Word وExcel وOutlook وTeams ضمن مستأجركم.",en:"AI inside Word, Excel, Outlook and Teams within your tenant.",
+  w_ar:"تستخدم الأكاديمية Microsoft 365 — تكامل وحوكمة فورية.",w_en:"The Academy already uses Microsoft 365 — instant integration and governance."},
+ {ic:"🌐",n:"DeepL",cat:"arabic",badges:["free"],url:"https://www.deepl.com",
+  ar:"ترجمة آلية عالية الجودة تدعم العربية.",en:"High-quality machine translation with Arabic support.",
+  w_ar:"ترجمة سريعة للمحتوى والمراسلات بين العربية والإنجليزية.",w_en:"Fast AR↔EN translation for content and correspondence."},
+ {ic:"🟣",n:"Gamma",cat:"present",badges:["free"],url:"https://gamma.app",
+  ar:"يحوّل النص إلى عروض ومستندات ومواقع أنيقة بسرعة.",en:"Turns text into polished decks, docs and sites quickly.",
+  w_ar:"عروض الإطلاق والمجلس والورش خلال دقائق.",w_en:"Launch, board and workshop decks in minutes."},
+ {ic:"🎨",n:"Canva (Magic Studio)",cat:"present",badges:["free","region"],url:"https://www.canva.com",
+  ar:"تصميم وعروض بالذكاء الاصطناعي مع دعم جيد للعربية.",en:"AI design and presentations with good Arabic support.",
+  w_ar:"منشورات تسويقية وشهادات وقوالب موحّدة للأكاديمية.",w_en:"Marketing posts, certificates and unified Academy templates."},
+ {ic:"🔵",n:"NotebookLM",cat:"research",badges:["free"],url:"https://notebooklm.google.com",
+  ar:"يجيب من مصادرك المرفوعة فقط مع الاستشهاد، ويولّد ملخّصات صوتية.",en:"Answers only from your uploaded sources with citations; generates audio overviews.",
+  w_ar:"بحث دقيق في اللوائح والمناهج وملفات الاعتماد.",w_en:"Accurate research over policies, curricula and accreditation files."},
+ {ic:"🔎",n:"Perplexity",cat:"research",badges:["free"],url:"https://www.perplexity.ai",
+  ar:"بحث ذكي يجيب بمصادر محدّثة وروابط.",en:"AI search that answers with up-to-date sources and links.",
+  w_ar:"مسح سريع لسوق العمل واتجاهات التخصصات.",w_en:"Quick scans of the job market and program trends."},
+ {ic:"📓",n:"Notion AI",cat:"research",badges:["ent"],url:"https://www.notion.so/product/ai",
+  ar:"مساعد كتابة وتنظيم معرفة داخل مساحات العمل.",en:"A writing and knowledge-organization assistant inside workspaces.",
+  w_ar:"قاعدة معرفة داخلية للسياسات والإجراءات.",w_en:"An internal knowledge base for policies and procedures."},
+ {ic:"🎙️",n:"Otter.ai",cat:"meet",badges:["free"],url:"https://otter.ai",
+  ar:"تفريغ ومحاضر اجتماعات تلقائية.",en:"Automatic meeting transcription and notes.",
+  w_ar:"محاضر اجتماعات الأقسام واللجان.",w_en:"Minutes for department and committee meetings."},
+ {ic:"🔥",n:"Fireflies.ai",cat:"meet",badges:["ent"],url:"https://fireflies.ai",
+  ar:"مساعد اجتماعات يسجّل ويلخّص ويستخرج المهام.",en:"A meeting assistant that records, summarizes and extracts action items.",
+  w_ar:"متابعة قرارات الاجتماعات ومهامها آليًا.",w_en:"Automatically track meeting decisions and tasks."},
+ {ic:"💬",n:"Teams Copilot",cat:"meet",badges:["ent","region"],url:"https://www.microsoft.com/microsoft-teams",
+  ar:"ملخّصات ومهام داخل اجتماعات Teams.",en:"Summaries and tasks inside Teams meetings.",
+  w_ar:"يعمل ضمن بيئة Microsoft الحالية للأكاديمية.",w_en:"Works within the Academy’s existing Microsoft environment."},
+ {ic:"🏫",n:"MagicSchool AI",cat:"edu",badges:["free"],url:"https://www.magicschool.ai",
+  ar:"منصة أدوات للمدربين: خطط دروس، تقييمات، تمايز.",en:"A teacher toolkit: lesson plans, assessments, differentiation.",
+  w_ar:"تسريع إعداد المواد التدريبية وبنوك الأسئلة.",w_en:"Speed up training material and question-bank creation."},
+ {ic:"📝",n:"Quizizz AI",cat:"edu",badges:["free"],url:"https://quizizz.com",
+  ar:"توليد اختبارات وأنشطة تفاعلية للصفوف.",en:"Generate quizzes and interactive class activities.",
+  w_ar:"تقييمات تفاعلية للقاعات الذكية.",w_en:"Interactive assessments for the smart classrooms."},
+ {ic:"🎓",n:"Khanmigo",cat:"edu",badges:["region"],url:"https://www.khanmigo.ai",
+  ar:"مرشد تعلّم بالذكاء الاصطناعي من Khan Academy.",en:"An AI learning guide from Khan Academy.",
+  w_ar:"نموذج لإرشاد المتدربين والدعم خارج القاعة.",w_en:"A model for trainee tutoring and out-of-class support."},
+ {ic:"🗣️",n:"ElevenLabs",cat:"media",badges:["region"],url:"https://elevenlabs.io",
+  ar:"توليد صوت ودبلجة عالية الجودة تدعم العربية.",en:"High-quality voice generation and dubbing with Arabic support.",
+  w_ar:"تعليق صوتي عربي لمحتوى التعليم عن بُعد.",w_en:"Arabic voice-over for e-learning content."},
+ {ic:"🎬",n:"Synthesia",cat:"media",badges:["ent"],url:"https://www.synthesia.io",
+  ar:"فيديوهات تدريبية بمتحدّث افتراضي بعدة لغات.",en:"Training videos with an AI avatar in many languages.",
+  w_ar:"دروس فيديو قابلة للتحديث دون تصوير.",w_en:"Updatable video lessons without filming."},
+ {ic:"🖼️",n:"Midjourney",cat:"media",badges:[],url:"https://www.midjourney.com",
+  ar:"توليد صور إبداعية عالية الجودة.",en:"High-quality creative image generation.",
+  w_ar:"صور للحملات والعروض والمواد التعليمية.",w_en:"Imagery for campaigns, decks and learning materials."},
+ {ic:"🧮",n:"ChatGPT — Data Analysis",cat:"research",badges:["ent"],url:"https://chatgpt.com",
+  ar:"تحليل ملفات Excel وتوليد رسوم بيانية بالأوامر.",en:"Analyze Excel files and generate charts by prompt.",
+  w_ar:"تحليل بيانات التسجيل والرضا بسرعة.",w_en:"Quickly analyze enrolment and satisfaction data."},
+ {ic:"✍️",n:"Grammarly",cat:"arabic",badges:["free"],url:"https://www.grammarly.com",
+  ar:"تدقيق وتحسين الكتابة الإنجليزية.",en:"English writing checking and improvement.",
+  w_ar:"رفع جودة المراسلات والمحتوى الإنجليزي.",w_en:"Raise the quality of English correspondence and content."}
+];
+function L(){return document.documentElement.lang;}
+var BLAB={free:{ar:"مجاني",en:"Free"},region:{ar:"يدعم العربية/المنطقة",en:"Arabic/Region"},ent:{ar:"للمؤسسات",en:"Enterprise"},agent:{ar:"وكيل",en:"Agentic"},sovb:{ar:"سيادي 🇸🇦",en:"Sovereign 🇸🇦"}};
+var curFilter="all";
+function renderFilters(){
+  document.getElementById('filters').innerHTML=CATS.map(function(c){
+    return '<button class="fchip'+(c.k===curFilter?' active':'')+'" onclick="setFilter(\''+c.k+'\',this)">'+(L()==='ar'?c.ar:c.en)+'</button>';
+  }).join('');
+}
+function setFilter(k){curFilter=k;renderFilters();renderGrid();}
+function catName(k){var c=CATS.find(function(x){return x.k===k;});return c?(L()==='ar'?c.ar:c.en):k;}
+function renderGrid(){
+  var list=T.filter(function(t){return curFilter==='all'||t.cat===curFilter;});
+  document.getElementById('grid').innerHTML=list.map(function(t){
+    var badges=t.badges.map(function(b){return '<span class="b '+b+'">'+(L()==='ar'?BLAB[b].ar:BLAB[b].en)+'</span>';}).join('');
+    return '<div class="tool'+(t.sov?' sov':'')+'"><div class="h"><span class="ic">'+t.ic+'</span><h3>'+t.n+'</h3></div>'+
+      '<div class="cat">'+catName(t.cat)+'</div>'+
+      '<div class="badges">'+badges+'</div>'+
+      '<p>'+(L()==='ar'?t.ar:t.en)+'</p>'+
+      '<div class="why">'+(L()==='ar'?'لماذا للأكاديمية: ':'Why for AoL: ')+(L()==='ar'?t.w_ar:t.w_en)+'</div>'+
+      '<div class="acts"><a class="visit" href="'+t.url+'" target="_blank" rel="noopener">'+(L()==='ar'?'زيارة':'Visit')+'</a>'+
+      '<button class="copybtn" onclick="copyLink(\''+t.url+'\')">'+(L()==='ar'?'نسخ الرابط':'Copy link')+'</button></div></div>';
+  }).join('');
+}
+function copyLink(u){navigator.clipboard.writeText(u).then(function(){toast(L()==='ar'?'تم نسخ الرابط ✓':'Link copied ✓');});}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},1900);}
+function applyLang(lang){
+  document.documentElement.lang=lang;document.documentElement.dir=(lang==='ar')?'rtl':'ltr';
+  document.querySelectorAll('[data-ar]').forEach(function(el){var v=el.getAttribute('data-'+lang);if(v!==null)el.innerHTML=v;});
+  var b=document.getElementById('langBtn');if(b)b.textContent=(lang==='ar')?'EN':'عربي';
+  try{localStorage.setItem('aol_lang',lang);}catch(e){}
+  renderFilters();renderGrid();
+}
+function toggleLang(){applyLang(L()==='ar'?'en':'ar');}
+(function(){var s='ar';try{s=localStorage.getItem('aol_lang')||'ar';}catch(e){}applyLang(s);})();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
