@@ -1,57 +1,48 @@
-# Skill patch — beautiful QR + fullscreen button (client-ai-hub)
+# Skill patch — branded QR + fullscreen via a DEDICATED PAGE (client-ai-hub)
 
-I can't persist changes to the installed `client-ai-hub` skill from a Cowork session
-(the skill files are a read-only cache). To make this part of the skill for future
-clients, edit the skill via **Settings → Capabilities → client-ai-hub**, and add the
-two pieces below.
+> Apply via **Settings → Capabilities → client-ai-hub**. Cowork can't persist skill edits.
+
+## Lesson (important)
+A **modal overlay** for the enlarged QR is fragile: `position:fixed` + `backdrop-filter`
+produced persistent see-through / stacking issues that were very hard to debug (computed
+style reported an opaque background while the page still bled through). **Do not use a modal.**
+
+**Use a dedicated full page instead.** It is bulletproof: a real page with a solid
+background has no stacking context to fight.
 
 ## 1) `references/deploy-and-qr.md` — Branded QR
-Add to the "Branded QR" section:
+> Centre medallion = the **client logo/icon** (use the icon-only mark on a white chip when a
+> clean asset exists; else the client's short name in the brand accent). Keep the logo ≤ 24–26%
+> of the QR width, `error_correction=H`, and **decode-verify** with `cv2.QRCodeDetector`. The QR
+> encodes the **hub page URL** (`.../CLIENT-AI-Hub.html`), not the bare repo root.
 
-> The centre medallion holds the **client logo** (recoloured SVG on a white chip) when a
-> clean logo asset exists; otherwise fall back to the client's short **name** in the brand
-> accent. Card uses the client's primary brand colour as the background, an accent rule
-> under the title, and a bilingual caption when the hub is bilingual. Always
-> `error_correction=H`, keep the logo ≤ 24–26% of the QR width, and **decode-verify** with
-> `cv2.QRCodeDetector` so the centre logo never breaks scanning. The QR encodes the **hub
-> page URL** (e.g. `.../CLIENT-AI-Hub.html`), not just the repo root.
+## 2) `references/page-specs.md` — Fullscreen QR = its own page
+> Add a page **`CLIENT-QR.html`**: a solid-background (`background: <page bg hex>`, no gradient,
+> no overlay) full-screen view with the large QR (`width:min(82vmin,560px)`), the scan caption,
+> the URL, a **Copy link** button, and a **Back to the Hub** button. The Hub's QR panel shows a
+> **⛶ Fullscreen** control that is a plain `<a href="CLIENT-QR.html">` (NOT a modal trigger).
+> Bilingual when the hub is bilingual.
 
-## 2) `references/page-specs.md` — Fullscreen QR (every QR gets this)
-Add under the Hub spec (and anywhere a QR is shown):
-
-> Every QR image carries a **⛶ Fullscreen** button. Clicking it opens a centered modal
-> overlay (dark, blurred backdrop) showing the QR at `min(82vmin, 560px)` on a white card,
-> the short URL beneath it, and a ✕ close button. Close on backdrop click and on `Esc`.
-> This lets people scan from across a room during a live session.
-
-### Drop-in snippet (single-file, offline-safe)
+### Drop-in: the Fullscreen control on the Hub
 ```html
-<!-- CSS -->
-<style>
-.qrmodal{position:fixed;inset:0;background:rgba(3,8,20,.93);backdrop-filter:blur(6px);display:none;place-items:center;z-index:200;padding:20px}
-.qrmodal.open{display:grid}
-.qrbox{display:flex;flex-direction:column;align-items:center;gap:16px;animation:qrpop .25s ease}
-@keyframes qrpop{from{transform:scale(.9);opacity:0}to{transform:none;opacity:1}}
-.qrbox img{width:min(82vmin,560px);height:auto;border-radius:22px;background:#fff;padding:12px}
-.qrbox .qrurl{color:var(--muted);font-family:var(--mono);font-size:14px}
-</style>
-
-<!-- Button (next to the QR image) -->
-<button class="btn" onclick="openQR()">⛶ <span data-ar="تكبير الرمز" data-en="Fullscreen">Fullscreen</span></button>
-
-<!-- Modal (place near end of <body>) -->
-<div id="qrModal" class="qrmodal" onclick="closeQR()">
-  <div class="qrbox" onclick="event.stopPropagation()">
-    <img src="CLIENT-hub-qr.png" alt="QR code">
-    <div class="qrurl">user.github.io/repo</div>
-    <button class="btn solid" onclick="closeQR()">✕ <span data-ar="إغلاق" data-en="Close">Close</span></button>
-  </div>
-</div>
-
-<!-- JS -->
-<script>
-function openQR(){document.getElementById('qrModal').classList.add('open');}
-function closeQR(){document.getElementById('qrModal').classList.remove('open');}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeQR();});
-</script>
+<a class="btn" href="CLIENT-QR.html">⛶ <span data-ar="تكبير الرمز" data-en="Fullscreen">Fullscreen</span></a>
 ```
+
+### Drop-in: CLIENT-QR.html (single file, solid background)
+```html
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+  html,body{margin:0;height:100%}
+  body{background:#070f22;color:#eef2fb;font-family:"Tajawal",system-ui,sans-serif;
+       min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+  .qrimg{width:min(82vmin,560px);height:auto;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .btn{border:1px solid #27376b;border-radius:999px;padding:10px 18px;color:#eef2fb;text-decoration:none}
+  .btn.solid{background:#F9A424;color:#10203f;font-weight:800;border-color:#F9A424}
+</style></head><body>
+  <img class="qrimg" src="CLIENT-hub-qr.png" alt="QR">
+  <div style="color:#a8b7da;font-family:monospace">user.github.io/repo</div>
+  <a class="btn solid" href="CLIENT-AI-Hub.html">↩ Back to the Hub</a>
+</body></html>
+```
+Replace the page bg hex, the QR filename, and the URL/label per client.
