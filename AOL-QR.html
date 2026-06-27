@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>رمز الوصول السريع · أكاديمية التعلم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070f22; --bg2:#0b1530; --panel:#101c3d; --line:#27376b;
+  --ink:#eef2fb; --muted:#a8b7da; --muted2:#7286b3;
+  --accent:#F9A424; --accent2:#ffc76b;
+  --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  --sans:"Tajawal",-apple-system,BlinkMacSystemFont,"Segoe UI","Cairo",Roboto,Helvetica,Arial,sans-serif;
+  --shadow:0 30px 80px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+/* SOLID full-screen navy background — no gradient, no overlay */
+body{background:#070f22;color:var(--ink);font-family:var(--sans);min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;max-width:760px;width:100%;margin:0 auto}
+.top img{height:34px;width:auto;display:block}
+.top .fb{font-weight:800;color:#fff;font-size:20px}.top .fb b{color:var(--accent)}
+.btn{cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);border-radius:999px;
+  padding:10px 18px;font-size:14.5px;font-family:inherit;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.btn.solid{background:var(--accent);color:#10203f;border-color:var(--accent);font-weight:800}
+.btn.solid:hover{background:var(--accent2)}
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:10px 20px 40px;text-align:center}
+.qrimg{width:min(82vmin,560px);height:auto;border-radius:24px;box-shadow:var(--shadow);display:block}
+.caption{color:var(--ink);font-size:18px;font-weight:700}
+.url{color:var(--muted);font-family:var(--mono);font-size:15px;word-break:break-all}
+.actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:4px}
+#toast{position:fixed;inset-inline:0;bottom:26px;margin:auto;width:max-content;max-width:90%;background:var(--accent);color:#10203f;
+  font-weight:700;padding:11px 20px;border-radius:999px;opacity:0;transform:translateY(14px);transition:.3s;pointer-events:none;z-index:9}
+#toast.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="top">
+  <a href="AOL-AI-Hub.html"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fb" style="display:none">AOL<b>·</b></span></a>
+  <div style="display:flex;gap:10px">
+    <button class="btn" id="langBtn" onclick="toggleLang()">EN</button>
+    <a class="btn" href="AOL-AI-Hub.html" data-ar="↩ العودة" data-en="↩ Back">↩ العودة</a>
+  </div>
+</div>
+
+<div class="stage">
+  <img class="qrimg" src="AOL-hub-qr.png" alt="QR — Academy of Learning AI Hub">
+  <div class="caption" data-ar="امسح الرمز للوصول إلى المنصة" data-en="Scan the code to open the AI Hub">امسح الرمز للوصول إلى المنصة</div>
+  <div class="url">amirshurrab.github.io/aol-ai-hub</div>
+  <div class="actions">
+    <a class="btn solid" href="AOL-AI-Hub.html" data-ar="↩ العودة إلى المنصة" data-en="↩ Back to the Hub">↩ العودة إلى المنصة</a>
+    <button class="btn" onclick="copyLink()" data-ar="نسخ الرابط" data-en="Copy link">نسخ الرابط</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script>
+var HUB="https://amirshurrab.github.io/aol-ai-hub/AOL-AI-Hub.html";
+function applyLang(lang){
+  document.documentElement.lang=lang;document.documentElement.dir=(lang==='ar')?'rtl':'ltr';
+  document.querySelectorAll('[data-ar]').forEach(function(el){var v=el.getAttribute('data-'+lang);if(v!==null)el.innerHTML=v;});
+  var b=document.getElementById('langBtn');if(b)b.textContent=(lang==='ar')?'EN':'عربي';
+  try{localStorage.setItem('aol_lang',lang);}catch(e){}
+}
+function toggleLang(){applyLang(document.documentElement.lang==='ar'?'en':'ar');}
+(function(){var s='ar';try{s=localStorage.getItem('aol_lang')||'ar';}catch(e){}applyLang(s);})();
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},1800);}
+function copyLink(){navigator.clipboard.writeText(HUB).then(function(){toast(document.documentElement.lang==='ar'?'تم نسخ الرابط ✓':'Link copied ✓');},function(){toast('—');});}
+</script>
+</body>
+</html>

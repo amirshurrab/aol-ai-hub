@@ -255,7 +255,7 @@ html[lang=ar] .lgnlead{font-size:17px;line-height:1.9}
       <img src="AOL-hub-qr.png" alt="QR" onerror="this.style.display='none';this.nextElementSibling.hidden=false">
       <div class="ph" hidden data-ar="سيظهر رمز الاستجابة السريعة بعد النشر على الإنترنت" data-en="QR appears after the hub is deployed online">سيظهر رمز الاستجابة السريعة بعد النشر على الإنترنت</div>
       <small data-ar="امسح للوصول إلى المنصة" data-en="Scan to open the hub">امسح للوصول إلى المنصة</small>
-      <button class="btn" onclick="openQR()" style="margin-top:8px">⛶ <span data-ar="تكبير الرمز" data-en="Fullscreen">تكبير الرمز</span></button>
+      <a class="btn" href="AOL-QR.html" style="margin-top:8px" data-ar="⛶ تكبير الرمز" data-en="⛶ Fullscreen">⛶ تكبير الرمز</a>
     </div>
   </section>
 </main>
@@ -273,7 +273,6 @@ html[lang=ar] .lgnlead{font-size:17px;line-height:1.9}
      data-en="All content and outputs shown here are illustrative and non-confidential — a first draft that a qualified human reviews before any official use. Irreversible actions require human approval. Tools and pricing change; verify before relying on them.">المحتوى والمخرجات المعروضة هنا توضيحية وغير سرية، وتمثّل مسودة أولى يراجعها مختص مؤهل قبل أي استخدام رسمي. تتطلب الإجراءات غير القابلة للتراجع موافقة بشرية. الأدوات والأسعار قابلة للتغيير؛ يُرجى التحقق قبل الاعتماد.</p>
 </footer>
 
-<div id="qrModal" class="qrmodal" onclick="closeQR()" style="background:#070f22"><div class="qrbox" onclick="event.stopPropagation()"><img src="AOL-hub-qr.png" alt="QR code"><div class="qrurl">amirshurrab.github.io/aol-ai-hub</div><button class="btn solid" onclick="closeQR()">✕ <span data-ar="إغلاق" data-en="Close">إغلاق</span></button></div></div>
 <div id="toast"></div>
 <script>
 /* ---------- i18n ---------- */
@@ -298,9 +297,6 @@ function copyLink(){copyText(location.href, document.documentElement.lang==='ar'
 /* ---------- reveal on scroll ---------- */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-function openQR(){document.getElementById("qrModal").classList.add("open");}
-function closeQR(){document.getElementById("qrModal").classList.remove("open");}
-document.addEventListener("keydown",function(e){if(e.key==="Escape")closeQR();});
 </script>
 </body>
 </html>
