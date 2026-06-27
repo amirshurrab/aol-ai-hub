@@ -16,7 +16,7 @@
  *
  * Keep HEADERS identical to the keys the form POSTs.
  */
-var SHEET_ID = "PASTE_GOOGLE_SHEET_ID_HERE";
+var SHEET_ID = "1CbRgMTqQTLXllpZBg6CeW8GDyei4JB0cL2_UBEwiYbs";
 var SHEET_NAME = "Responses";
 
 var HEADERS = ["timestamp","seminar_title","date_attended","presenter",
