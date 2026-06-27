@@ -110,7 +110,7 @@ html[lang=ar] .card h3{font-size:22px}
 .cobrand img{height:28px;width:auto;display:block}
 .lgnfb{display:none;color:#0E244C;font-weight:800;font-size:18px;letter-spacing:.5px}
 /* fullscreen QR modal */
-.qrmodal{position:fixed;inset:0;background:#070d1c;display:none;place-items:center;z-index:9999;padding:20px}
+.qrmodal{position:fixed;inset:0;background:#070f22;display:none;place-items:center;z-index:99999;padding:20px}
 .qrmodal.open{display:grid}
 .qrbox{display:flex;flex-direction:column;align-items:center;gap:16px;animation:qrpop .25s ease;background:#0c1838;border:1px solid var(--line);border-radius:26px;padding:24px 24px 22px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 @keyframes qrpop{from{transform:scale(.9);opacity:0}to{transform:none;opacity:1}}
@@ -273,7 +273,7 @@ html[lang=ar] .lgnlead{font-size:17px;line-height:1.9}
      data-en="All content and outputs shown here are illustrative and non-confidential — a first draft that a qualified human reviews before any official use. Irreversible actions require human approval. Tools and pricing change; verify before relying on them.">المحتوى والمخرجات المعروضة هنا توضيحية وغير سرية، وتمثّل مسودة أولى يراجعها مختص مؤهل قبل أي استخدام رسمي. تتطلب الإجراءات غير القابلة للتراجع موافقة بشرية. الأدوات والأسعار قابلة للتغيير؛ يُرجى التحقق قبل الاعتماد.</p>
 </footer>
 
-<div id="qrModal" class="qrmodal" onclick="closeQR()"><div class="qrbox" onclick="event.stopPropagation()"><img src="AOL-hub-qr.png" alt="QR code"><div class="qrurl">amirshurrab.github.io/aol-ai-hub</div><button class="btn solid" onclick="closeQR()">✕ <span data-ar="إغلاق" data-en="Close">إغلاق</span></button></div></div>
+<div id="qrModal" class="qrmodal" onclick="closeQR()" style="background:#070f22"><div class="qrbox" onclick="event.stopPropagation()"><img src="AOL-hub-qr.png" alt="QR code"><div class="qrurl">amirshurrab.github.io/aol-ai-hub</div><button class="btn solid" onclick="closeQR()">✕ <span data-ar="إغلاق" data-en="Close">إغلاق</span></button></div></div>
 <div id="toast"></div>
 <script>
 /* ---------- i18n ---------- */
