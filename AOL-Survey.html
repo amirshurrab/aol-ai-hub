@@ -36,8 +36,8 @@ h1.title{font-size:clamp(24px,4vw,38px);line-height:1.16;margin:.18em 0;font-wei
 .sess .s b{color:var(--ink)}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:14px 0}
 .q{font-size:15.5px;margin-bottom:10px;font-weight:600}
-.likert{display:flex;gap:8px;flex-wrap:wrap}
-.likert button{cursor:pointer;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);font-size:16px;font-family:inherit;transition:.18s}
+.likert{display:flex;gap:10px;flex-wrap:nowrap}
+.likert button{cursor:pointer;flex:1;min-width:0;height:60px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);font-size:22px;font-weight:700;font-family:inherit;transition:.18s}
 .likert button:hover{border-color:var(--accent)}
 .likert button.sel{background:var(--accent);color:#10203f;border-color:var(--accent);font-weight:800;transform:translateY(-2px)}
 .scalelab{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted2);margin-top:6px}
@@ -156,7 +156,7 @@ html[lang=ar] .lgnband p{font-size:15.5px;line-height:1.9}
   </div>
 
   <div class="card">
-    <div class="q" data-ar="بيانات اختيارية" data-en="Optional details">بيانات اختيارية</div>
+    <div class="q" data-ar="بيانات شخصية" data-en="Personal details">بيانات شخصية</div>
     <div class="optgrid">
       <div><label class="fl" data-ar="الاسم" data-en="Name">الاسم</label><input type="text" id="name"></div>
       <div><label class="fl" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label><input type="email" id="email"></div>
