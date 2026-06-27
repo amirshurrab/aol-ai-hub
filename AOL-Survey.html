@@ -41,15 +41,15 @@ h1.title{font-size:clamp(24px,4vw,38px);line-height:1.16;margin:.18em 0;font-wei
 .likert button:hover{border-color:var(--accent)}
 .likert button.sel{background:var(--accent);color:#10203f;border-color:var(--accent);font-weight:800;transform:translateY(-2px)}
 .scalelab{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted2);margin-top:6px}
-.nps{display:flex;gap:6px;flex-wrap:wrap}
-.nps button{cursor:pointer;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);font-size:14px;font-family:inherit;transition:.18s}
+.nps{display:flex;gap:6px;flex-wrap:nowrap}
+.nps button{cursor:pointer;flex:1;min-width:0;height:54px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);font-size:18px;font-weight:700;font-family:inherit;transition:.18s}
 .nps button:hover{border-color:var(--accent)}
 .nps button.sel{background:var(--accent);color:#10203f;border-color:var(--accent);font-weight:800}
 textarea,input[type=text],input[type=email]{width:100%;background:#0a1430;border:1px solid var(--line);border-radius:12px;color:var(--ink);font-family:inherit;font-size:14.5px;padding:11px 13px;resize:vertical}
 textarea:focus,input:focus{outline:none;border-color:var(--accent)}
 label.fl{display:block;font-size:13px;color:var(--muted);margin:10px 0 5px}
 .optgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.submit{margin:18px 0 6px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.submit{margin:24px 0 6px;display:flex;flex-direction:column;gap:10px;align-items:center}
 .err{color:var(--red);font-size:13px;margin-inline-start:6px}
 .thanks{display:none;text-align:center;padding:40px 16px}
 .thanks .big{font-size:46px}.thanks h2{font-size:26px;margin:8px 0}
@@ -156,7 +156,7 @@ html[lang=ar] .lgnband p{font-size:15.5px;line-height:1.9}
   </div>
 
   <div class="card">
-    <div class="q" data-ar="بيانات شخصية" data-en="Personal details">بيانات شخصية</div>
+    <div class="q" data-ar="بياناتك" data-en="Personal details">بياناتك</div>
     <div class="optgrid">
       <div><label class="fl" data-ar="الاسم" data-en="Name">الاسم</label><input type="text" id="name"></div>
       <div><label class="fl" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label><input type="email" id="email"></div>
@@ -165,7 +165,7 @@ html[lang=ar] .lgnband p{font-size:15.5px;line-height:1.9}
   </div>
 
   <div class="submit">
-    <button class="btn solid" onclick="submitForm()" data-ar="إرسال" data-en="Submit">إرسال</button>
+    <button class="btn solid" onclick="submitForm()" style="font-size:18px;padding:15px 64px;border-radius:14px" data-ar="إرسال" data-en="Submit">إرسال</button>
     <span class="err" id="err"></span>
   </div>
 
@@ -190,6 +190,8 @@ html[lang=ar] .lgnband p{font-size:15.5px;line-height:1.9}
 
 
 <section class="lgnband reveal wrap"><span class="lgnmark"><img src="assets/lgn-logo.png" alt="LGN" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fb">LGN</span></span><div class="lgntext"><h3 data-ar="كيف تساعدك LGN" data-en="How LGN can help">كيف تساعدك LGN</h3><p data-ar="هذه الجلسة بدعم وتنفيذ من LGN، شريك تمكين الذكاء الاصطناعي لأكاديمية التعلم." data-en="This session is delivered with LGN, the AI enablement partner for Academy of Learning.">هذه الجلسة بدعم وتنفيذ من LGN، شريك تمكين الذكاء الاصطناعي لأكاديمية التعلم.</p><div class="lgnchips"><span data-ar="شريك التمكين" data-en="Enablement partner">شريك التمكين</span><span data-ar="AI Learning Assistant" data-en="AI Learning Assistant">AI Learning Assistant</span><span data-ar="AI Kids Club" data-en="AI Kids Club">AI Kids Club</span></div></div></section>
+
+<div class="backhub" style="max-width:1100px;margin:34px auto 0;padding:0 22px;text-align:center"><a class="btn solid" href="AOL-AI-Hub.html" style="font-size:15px;padding:12px 30px" data-ar="↩ العودة إلى المنصة" data-en="↩ Back to the Hub">↩ العودة إلى المنصة</a></div>
 <footer class="site wrap">
   <div class="row"><div class="lockup"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="footfall" style="display:none">AOL<b>·</b></span></div>
   <div class="partner" data-ar="بالشراكة مع LGN · أكاديمية التعلم" data-en="In partnership with LGN · Academy of Learning">بالشراكة مع LGN · أكاديمية التعلم</div></div>
