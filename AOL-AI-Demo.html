@@ -50,7 +50,8 @@ h2.sec{font-size:24px;margin:36px 0 4px}
 .run{margin-top:12px;border:1px dashed var(--line);border-radius:12px;background:rgba(95,191,138,.06);padding:0;max-height:0;overflow:hidden;transition:max-height .55s ease,padding .55s ease}
 .run.open{max-height:720px;padding:14px;overflow:auto}
 .run .lbl{font-size:11px;color:var(--green);font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
-.run .out{font-size:14px;color:#eaf2ff;line-height:1.7}
+.run .out{font-size:14px;color:#eaf2ff;line-height:1.7;transition:opacity .55s ease}
+.run .out.gen{opacity:.12}
 .run .out h4{margin:10px 0 4px;color:var(--accent2);font-size:15px}
 .run .out ul{margin:6px 0;padding-inline-start:20px}
 .starter{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
@@ -102,16 +103,36 @@ html[lang=ar] .idea b{font-size:15px}
 .lgnchips{display:flex;flex-wrap:wrap;gap:6px}
 .lgnchips span{font-size:12px;color:var(--ink);border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:999px;padding:4px 10px}
 html[lang=ar] .lgnband p{font-size:15.5px;line-height:1.9}
+/* a11y + reduced motion + bidi */
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+html[lang=ar] .chip,html[lang=ar] .tagchip,html[lang=ar] .lgnchips span,html[lang=ar] .fchip,html[lang=ar] .b,html[lang=ar] .url,html[lang=ar] .conn .c{unicode-bidi:isolate}
 </style>
+<meta name="description" content="ست مهام يومية في أكاديمية التعلم تُنجز أسرع بكثير بالذكاء الاصطناعي، مع أوامر جاهزة ونتائج واقعية.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Academy of Learning — AI Enablement Hub">
+<meta property="og:title" content="AI Capability Demo — Academy of Learning">
+<meta property="og:description" content="ست مهام يومية في أكاديمية التعلم تُنجز أسرع بكثير بالذكاء الاصطناعي، مع أوامر جاهزة ونتائج واقعية.">
+<meta property="og:url" content="https://amirshurrab.github.io/aol-ai-hub/AOL-AI-Demo.html">
+<meta property="og:image" content="https://amirshurrab.github.io/aol-ai-hub/AOL-og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Capability Demo — Academy of Learning">
+<meta name="twitter:description" content="ست مهام يومية في أكاديمية التعلم تُنجز أسرع بكثير بالذكاء الاصطناعي، مع أوامر جاهزة ونتائج واقعية.">
+<meta name="twitter:image" content="https://amirshurrab.github.io/aol-ai-hub/AOL-og.png">
 </head>
 <body>
 <header class="site">
   <div class="lockup">
-    <a href="https://aol.edu.sa" target="_blank" rel="noopener"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fallback" style="display:none">AOL<b>·</b></span></a><span class="lgdiv">|</span><span class="cobrand"><img src="assets/lgn-logo.png" alt="LGN" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"><span class="lgnfb">LGN</span></span>
+    <a href="https://aol.edu.sa" target="_blank" rel="noopener"><img src="assets/aol-logo-white.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="fallback" style="display:none">AOL<b>·</b></span></a><span class="lgdiv">|</span><span class="cobrand"><img src="assets/lgn-logo.png" alt="LGN" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"><span class="lgnfb">LGN</span></span>
     <span class="tagchip" data-ar="عرض القدرات" data-en="Capability Demo">عرض القدرات</span>
   </div>
   <div class="controls">
-    <button class="btn" id="langBtn" onclick="toggleLang()">EN</button>
+    <button class="btn" id="langBtn" onclick="toggleLang()" aria-label="Switch language / تبديل اللغة">EN</button>
     <a class="btn" href="AOL-AI-Hub.html" data-ar="↩ المنصة" data-en="↩ Hub">↩ المنصة</a>
   </div>
 </header>
@@ -228,7 +249,7 @@ html[lang=ar] .lgnband p{font-size:15.5px;line-height:1.9}
 <div class="backhub" style="max-width:1100px;margin:34px auto 0;padding:0 22px;text-align:center"><a class="btn solid" href="AOL-AI-Hub.html" style="font-size:15px;padding:12px 30px" data-ar="↩ العودة إلى المنصة" data-en="↩ Back to the Hub">↩ العودة إلى المنصة</a></div>
 <footer class="site wrap">
   <div class="row">
-    <div class="lockup"><img src="https://aol.edu.sa/wp-content/uploads/2023/11/AOL-Co.-LOGO-White.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="footfall" style="display:none">AOL<b>·</b></span></div>
+    <div class="lockup"><img src="assets/aol-logo-white.png" alt="Academy of Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="footfall" style="display:none">AOL<b>·</b></span></div>
     <div class="partner" data-ar="بالشراكة مع LGN · أكاديمية التعلم" data-en="In partnership with LGN · Academy of Learning">بالشراكة مع LGN · أكاديمية التعلم</div>
   </div>
   <p class="disclaimer" data-ar="المخرجات أعلاه توضيحية وغير سرية، وتمثّل مسودة أولى يراجعها مختص قبل الاستخدام. تتطلب الإجراءات غير القابلة للتراجع موافقة بشرية." data-en="The outputs above are illustrative and non-confidential — a first draft a human reviews before use. Irreversible actions require human approval.">المخرجات أعلاه توضيحية وغير سرية…</p>
@@ -250,7 +271,7 @@ function strip(html){var d=document.createElement('div');d.innerHTML=html.replac
 function copyVal(s){navigator.clipboard.writeText(s).then(function(){toast(document.documentElement.lang==='ar'?'تم النسخ ✓':'Copied ✓');},function(){toast('—');});}
 function copyPrompt(btn){var box=btn.closest('.demo').querySelector('.promptbox');var lang=document.documentElement.lang;copyVal(strip(box.getAttribute('data-'+lang)||box.innerHTML));}
 function copyCode(btn){var c=btn.closest('.starter').querySelector('code');var lang=document.documentElement.lang;copyVal(strip(c.getAttribute('data-'+lang)||c.innerHTML));}
-function toggleRun(btn){var run=btn.closest('.demo').querySelector('.run');run.classList.toggle('open');var lang=document.documentElement.lang;btn.innerHTML=run.classList.contains('open')?(lang==='ar'?'▾ إخفاء':'▾ Hide'):(lang==='ar'?'▶ تشغيل':'▶ Run');}
+function toggleRun(btn){var run=btn.closest('.demo').querySelector('.run');var out=run.querySelector('.out');var open=!run.classList.contains('open');run.classList.toggle('open');var lang=document.documentElement.lang;btn.innerHTML=open?(lang==='ar'?'▾ إخفاء':'▾ Hide'):(lang==='ar'?'▶ تشغيل':'▶ Run');if(open&&out){out.classList.add('gen');clearTimeout(out._t);out._t=setTimeout(function(){out.classList.remove('gen');},700);}}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 </script>
